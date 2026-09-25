@@ -82,7 +82,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | 23 | `ch23-dogal-dil/` | Doğal dil işleme | 27 | 🟢 hazır |
 | 24 | `ch24-derin-dil/` | Derin öğrenme ile doğal dil | 28 | 🟢 hazır |
 | 25 | `ch25-bilgisayarli-goru/` | Bilgisayarlı görü | 29 | 🟢 hazır |
-| 26 | `ch26-robotik/` | Robotik | 30 | ⚪ planlı |
+| 26 | `ch26-robotik/` | Robotik | 30 | 🟢 hazır |
 
 ---
 
@@ -92,10 +92,14 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
-| 27 | `ch27-felsefe-etik/` | Felsefe, etik ve AI güvenliği | 31 | ⚪ planlı |
-| 28 | `ch28-AI-gelecek/` | AI’nin geleceği | 32 | ⚪ planlı |
+| 27 | `ch27-felsefe-etik/` | Felsefe, etik ve AI güvenliği | 31 | 🟢 hazır |
+| 28 | `ch28-AI-gelecek/` | AI’nin geleceği | 32 | 🟢 hazır |
 
 ---
+
+## Müfredat tamamlandı
+
+Tüm **28 bölüm** 🟢 hazır. Kapanış ve tekrar yolu: [`BITIRME.md`](BITIRME.md).
 
 ## Tempo önerisi
 
