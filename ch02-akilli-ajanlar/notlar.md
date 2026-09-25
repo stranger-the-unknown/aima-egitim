@@ -109,7 +109,7 @@ Bir **görev ortamını** tanımlamak için PEAS kullan: **P**erformans ölçüt
 | **Ayrık / sürekli** | Durum, zaman, algı ve eylem sonlu sayıda mı? | Sürekli ise sayısal ve yaklaşık yöntemler gerekir. |
 | **Bilinen / bilinmeyen** | Ajan ortamın "fizik kurallarını" biliyor mu? | Bilinmiyorsa öğrenme ve keşif gerekir. *Gözlemlenebilirlikten farklıdır*: solitaire'de kuralları bilirsin ama kartları göremezsin; yeni bir oyunda ekranı görürsün ama tuşların ne işe yaradığını bilmezsin. |
 
-**İnce ayrım: stokastik ≠ deterministik olmayan.** 4. baskı şöyle ayırır: Sonuçların **olasılıkları** biliniyorsa ortam *stokastiktir* ("%25 yağmur"). Yalnızca olası sonuçların **listesi** varsa, olasılıklar yoksa *deterministik olmayan* (*nondeterministic*) denir ("yağmur yağabilir de yağmayabilir de"). Bölüm 4'teki AND-OR araması ikinci türle çalışır; Bölüm 12 ve sonrası birinci türle.
+**İnce ayrım: stokastik ≠ deterministik olmayan.** 4. baskı şöyle ayırır: Model sonuçların **olasılıklarını** açıkça veriyorsa ortam *stokastiktir* ("süpürme %90 ihtimalle başarılı olur"). Yalnızca olası sonuçların **listesi** varsa, olasılıklar yoksa *deterministik olmayan* (*nondeterministic*) denir ("süpürme başarılı olabilir de, olmayabilir de"). Bölüm 4'teki AND-OR araması ikinci türle çalışır; Bölüm 12 ve sonrası birinci türle.
 
 **En zor durum:** kısmi gözlemlenebilir, çok ajanlı, deterministik olmayan, ardışık, dinamik, sürekli ve bilinmeyen. Taksi şoförlüğü, "bilinmeyen" dışındaki bütün zorlukları taşır.
 
