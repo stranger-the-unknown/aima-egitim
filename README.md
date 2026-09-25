@@ -18,8 +18,6 @@ Kitabı yasal olarak edinmeniz gerekir. Resmi kaynaklar:
 
 ## Asistanla birlikte nasıl çalışacağız?
 
-Bu depo, bir yapay zekâ asistanıyla (ör. Grok) etkileşimli ders gibi kullanılmak üzere tasarlandı:
-
 1. **Müfredata bak** — `MUFREDAT.md` içinde sıradaki bölümü seç.
 2. **Kitabı oku** — ilgili AIMA bölümünü kendi nüshandandan oku.
 3. **Notlara geç** — `chXX-.../notlar.md` ile kavramları kendi dilinde pekiştir.
@@ -32,35 +30,23 @@ Bu depo, bir yapay zekâ asistanıyla (ör. Grok) etkileşimli ders gibi kullan�
 
 - **Python 3.10+**
 - Temel Python (fonksiyon, sınıf, liste/sözlük)
-- İsteğe bağlı: `numpy`, `matplotlib` (görselleştirme ve sayısal örnekler için)
-
-Kurulum:
+- İsteğe bağlı: `numpy`, `matplotlib`
 
 ```bash
 cd aima-egitim
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 pip install -r requirements.txt
 python scripts/check_setup.py
 ```
 
-İlk örnek:
+Örnekler:
 
 ```bash
 python ch01-giris/ornekler/vacuum_agent.py
-python ch01-giris/ornekler/peas_ornekleri.py
+python ch02-akilli-ajanlar/ornekler/model_based_vacuum.py
+python ch03-cozum-arama/ornekler/romania_arama.py
 ```
-
-## Çalışma yöntemi (önerilen döngü)
-
-| Adım | Ne yaparsın |
-|------|-------------|
-| 1. Oku | AIMA'da ilgili bölümü oku |
-| 2. Not | `notlar.md` ile kavramları kendi cümlelerinle gözden geçir |
-| 3. Kod | Örnekleri çalıştır, parametreleri değiştir |
-| 4. Alıştırma | `alistirmalar.md` sorularını çöz |
-| 5. Quiz | `quiz.md` ile kendini test et |
-| 6. Özet | Kısa bir “öğrendiklerim” notu yaz (isteğe bağlı) |
 
 ## Depo yapısı (özet)
 
@@ -71,9 +57,10 @@ aima-egitim/
 ├── CONTRIBUTING.md
 ├── requirements.txt
 ├── scripts/check_setup.py
-├── ch01-giris/          ← ilk hazır bölüm
-├── ch02-akilli-ajanlar/ ← yakında
-├── …                    ← ch03–ch07 stub
+├── ch01-giris/             ← 🟢 hazır (+ ozet.md)
+├── ch02-akilli-ajanlar/    ← 🟢 hazır
+├── ch03-cozum-arama/       ← 🟢 hazır (Romanya arama)
+├── ch04–ch07/              ← stub / öğrenme hedefleri
 └── …
 ```
 
@@ -82,12 +69,13 @@ aima-egitim/
 - Kitap metni **kopyalanmaz** ve yakın parafraz yapılmaz.
 - Notlar özgün Türkçe öğretim içeriğidir.
 - Algoritmalar kamuya açık yöntemlerin eğitici uygulamalarıdır.
-- Ticari kitap içeriğini paylaşmak veya dağıtmak yasaktır; lütfen kitabı yasal yoldan edinin.
 
 ## Durum
 
-- **Bölüm 1 (Giriş):** hazır — notlar, örnekler, alıştırmalar, quiz
-- **Bölüm 2–7:** öğrenme hedefleri önizlemesi (stub)
+- **Bölüm 1 (Giriş):** 🟢 hazır — notlar, özet, örnekler, alıştırmalar, quiz
+- **Bölüm 2 (Akıllı ajanlar):** 🟢 hazır — notlar, modele dayalı süpürge, mimari karşılaştırma, alıştırmalar, quiz
+- **Bölüm 3 (Çözüm arama):** 🟢 hazır — notlar, Romanya BFS/DFS/UCS/A*, alıştırmalar, quiz
+- **Bölüm 4–7:** öğrenme hedefleri önizlemesi (stub)
 - **Bölüm 8–28:** müfredatta planlı
 
-İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
+İyi çalışmalar!

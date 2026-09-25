@@ -13,7 +13,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | # | Klasör | Konu (AIMA TOC) | Hafta | Durum |
 |---|--------|-----------------|-------|-------|
 | 1 | `ch01-giris/` | Giriş (What is AI?, temeller, tarihçe özeti) | 1 | 🟢 hazır |
-| 2 | `ch02-akilli-ajanlar/` | Akıllı ajanlar | 2 | 🟡 yakında |
+| 2 | `ch02-akilli-ajanlar/` | Akıllı ajanlar | 2 | 🟢 hazır |
 
 ---
 
@@ -23,7 +23,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
-| 3 | `ch03-cozum-arama/` | Çözüm arama yoluyla problem çözme | 3–4 | 🟡 stub |
+| 3 | `ch03-cozum-arama/` | Çözüm arama yoluyla problem çözme | 3–4 | 🟢 hazır |
 | 4 | `ch04-karmasik-ortamlar/` | Karmaşık ortamlarda arama | 5 | 🟡 stub |
 | 5 | `ch05-rakip-arama/` | Rakip arama ve oyunlar | 6–7 | 🟡 stub |
 | 6 | `ch06-kisit-saglama/` | Kısıt sağlama problemleri | 8 | 🟡 stub |
@@ -65,7 +65,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 **Öğrenme çıktıları:** Denetimli öğrenme, öğrenme teorisi, derin öğrenme, pekiştirmeli öğrenme ve olasılıksal modellerle öğrenmeyi uygulamak.
 
 | # | Klasör | Konu | Hafta | Durum |
-|---|--------|-----------------|-------|-------|
+|---|--------|------|-------|-------|
 | 19 | `ch19-ogrenme-orneklerden/` | Örneklerden öğrenme | 22–23 | ⚪ planlı |
 | 20 | `ch20-bilgi-ogrenme/` | Bilgi öğrenme | 24 | ⚪ planlı |
 | 21 | `ch21-derin-ogrenme/` | Derin öğrenme | 25 | ⚪ planlı |
