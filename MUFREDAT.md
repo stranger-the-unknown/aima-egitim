@@ -69,7 +69,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | 19 | `ch19-ogrenme-orneklerden/` | Örneklerden öğrenme | 22–23 | 🟢 hazır |
 | 20 | `ch20-bilgi-ogrenme/` | Olasılıksal modellerle öğrenme (US Ch.20) | 24 | 🟢 hazır |
 | 21 | `ch21-derin-ogrenme/` | Derin öğrenme | 25 | 🟢 hazır |
-| 22 | `ch22-pekistirmeli-ogrenme/` | Pekiştirmeli öğrenme | 26 | ⚪ planlı |
+| 22 | `ch22-pekistirmeli-ogrenme/` | Pekiştirmeli öğrenme | 26 | 🟢 hazır |
 
 ---
 
@@ -79,7 +79,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
-| 23 | `ch23-dogal-dil/` | Doğal dil işleme | 27 | ⚪ planlı |
+| 23 | `ch23-dogal-dil/` | Doğal dil işleme | 27 | 🟢 hazır |
 | 24 | `ch24-derin-dil/` | Derin öğrenme ile doğal dil | 28 | ⚪ planlı |
 | 25 | `ch25-bilgisayarli-goru/` | Bilgisayarlı görü | 29 | ⚪ planlı |
 | 26 | `ch26-robotik/` | Robotik | 30 | ⚪ planlı |
