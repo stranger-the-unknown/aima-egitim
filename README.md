@@ -69,6 +69,10 @@ python ch12-belirsiz-bilgi/ornekler/bayes_kurali.py
 python ch12-belirsiz-bilgi/ornekler/naive_bayes_mini.py
 python ch13-olasiliksal-akil/ornekler/cpt_goster.py
 python ch13-olasiliksal-akil/ornekler/bayes_agi_kucuk.py
+python ch14-zamansal-olasilik/ornekler/hmm_filtreleme.py
+python ch14-zamansal-olasilik/ornekler/viterbi_kucuk.py
+python ch15-olasiliksal-programlama/ornekler/basit_uretimsel_model.py
+python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -104,6 +108,8 @@ aima-egitim/
 ├── ch11-klasik-planlama/        ← 🟢 hazır (STRIPS BFS)
 ├── ch12-belirsiz-bilgi/         ← 🟢 hazır (Bayes, naif Bayes)
 ├── ch13-olasiliksal-akil/       ← 🟢 hazır (Bayes ağı, enumeration)
+├── ch14-zamansal-olasilik/      ← 🟢 hazır (HMM filtre, Viterbi)
+├── ch15-olasiliksal-programlama/ ← 🟢 hazır (üretimsel model, reddetme)
 └── …
 ```
 
@@ -129,6 +135,8 @@ aima-egitim/
 - **Bölüm 11 (Klasik planlama):** 🟢 hazır — STRIPS şema, bloklar BFS, alıştırmalar, quiz
 - **Bölüm 12 (Belirsiz bilgi):** 🟢 hazır — olasılık, Bayes kuralı, naif Bayes mini, alıştırmalar, quiz
 - **Bölüm 13 (Olasılıksal akıl):** 🟢 hazır — Bayes ağı CPT, enumeration, alıştırmalar, quiz
-- **Bölüm 14–28:** müfredatta planlı
+- **Bölüm 14 (Zamansal olasılık):** 🟢 hazır — HMM forward filtre, Viterbi, alıştırmalar, quiz
+- **Bölüm 15 (Olasılıksal programlama):** 🟢 hazır — üretimsel model, reddetme örnekleme, alıştırmalar, quiz
+- **Bölüm 16–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
