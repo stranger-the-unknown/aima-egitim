@@ -62,6 +62,7 @@ python ch08-birinci-derece-mantik/ornekler/fol_ceviri.py
 python ch09-cikarim-birinci-derece/ornekler/birlesim_unification.py
 python ch09-cikarim-birinci-derece/ornekler/geriye_zincir.py
 python ch10-bilgi-temsili/ornekler/ontoloji_mini.py
+python ch10-bilgi-temsili/ornekler/varsayilan_akil.py
 python ch11-klasik-planlama/ornekler/aksiyon_semasi.py
 python ch11-klasik-planlama/ornekler/strips_bloklar.py
 python ch12-belirsiz-bilgi/ornekler/bayes_kurali.py
