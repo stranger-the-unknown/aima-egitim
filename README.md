@@ -53,6 +53,10 @@ python ch03-cozum-arama/ornekler/romania_arama.py
 python ch04-karmasik-ortamlar/ornekler/tepe_tirmanma_n_queens.py --yeniden-baslat 20
 python ch04-karmasik-ortamlar/ornekler/simule_tavlama_demo.py
 python ch05-rakip-arama/ornekler/minimax_tictactoe.py --mod ajan-ajan
+python ch06-kisit-saglama/ornekler/harita_boyama_csp.py --mrv --forward
+python ch06-kisit-saglama/ornekler/n_vezir_csp.py --n 8
+python ch07-mantiksal-ajanlar/ornekler/onerme_mantigi.py
+python ch07-mantiksal-ajanlar/ornekler/wumpus_basit.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -80,7 +84,8 @@ aima-egitim/
 ├── ch03-cozum-arama/       ← 🟢 hazır (Romanya arama)
 ├── ch04-karmasik-ortamlar/ ← 🟢 hazır (tepe tırmanma, SA)
 ├── ch05-rakip-arama/       ← 🟢 hazır (minimax XOX)
-├── ch06–ch07/              ← stub / öğrenme hedefleri
+├── ch06-kisit-saglama/     ← 🟢 hazır (harita boyama CSP)
+├── ch07-mantiksal-ajanlar/ ← 🟢 hazır (önerme KB, ızgara)
 └── …
 ```
 
@@ -98,7 +103,8 @@ aima-egitim/
 - **Bölüm 3 (Çözüm arama):** 🟢 hazır — notlar, Romanya BFS/DFS/UCS/A*, alıştırmalar, quiz
 - **Bölüm 4 (Karmaşık ortamlar):** 🟢 hazır — yerel arama, N-vezir tepe tırmanma, SA/TSP, alıştırmalar, quiz
 - **Bölüm 5 (Rakip arama):** 🟢 hazır — minimax/α-β, XOX ajan-ajan, alıştırmalar, quiz
-- **Bölüm 6–7:** öğrenme hedefleri önizlemesi (stub)
+- **Bölüm 6 (Kısıt sağlama):** 🟢 hazır — CSP notları, harita boyama + N-vezir CSP, alıştırmalar, quiz
+- **Bölüm 7 (Mantıksal ajanlar):** 🟢 hazır — önerme KB tell/ask, 2×2 ızgara mantığı, alıştırmalar, quiz
 - **Bölüm 8–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
