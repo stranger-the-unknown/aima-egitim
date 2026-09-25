@@ -57,6 +57,10 @@ python ch06-kisit-saglama/ornekler/harita_boyama_csp.py --mrv --forward
 python ch06-kisit-saglama/ornekler/n_vezir_csp.py --n 8
 python ch07-mantiksal-ajanlar/ornekler/onerme_mantigi.py
 python ch07-mantiksal-ajanlar/ornekler/wumpus_basit.py
+python ch08-birinci-derece-mantik/ornekler/fol_sozluk.py
+python ch08-birinci-derece-mantik/ornekler/fol_ceviri.py
+python ch09-cikarim-birinci-derece/ornekler/birlesim_unification.py
+python ch09-cikarim-birinci-derece/ornekler/geriye_zincir.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -86,6 +90,8 @@ aima-egitim/
 ├── ch05-rakip-arama/       ← 🟢 hazır (minimax XOX)
 ├── ch06-kisit-saglama/     ← 🟢 hazır (harita boyama CSP)
 ├── ch07-mantiksal-ajanlar/ ← 🟢 hazır (önerme KB, ızgara)
+├── ch08-birinci-derece-mantik/ ← 🟢 hazır (FOL sözlük, çeviri)
+├── ch09-cikarim-birinci-derece/ ← 🟢 hazır (unify, geriye zincir)
 └── …
 ```
 
@@ -105,6 +111,8 @@ aima-egitim/
 - **Bölüm 5 (Rakip arama):** 🟢 hazır — minimax/α-β, XOX ajan-ajan, alıştırmalar, quiz
 - **Bölüm 6 (Kısıt sağlama):** 🟢 hazır — CSP notları, harita boyama + N-vezir CSP, alıştırmalar, quiz
 - **Bölüm 7 (Mantıksal ajanlar):** 🟢 hazır — önerme KB tell/ask, 2×2 ızgara mantığı, alıştırmalar, quiz
-- **Bölüm 8–28:** müfredatta planlı
+- **Bölüm 8 (Birinci derece mantık):** 🟢 hazır — FOL notları, Parent/Ancestor KB, TR↔FOL çeviri, alıştırmalar, quiz
+- **Bölüm 9 (FOL çıkarım):** 🟢 hazır — birleştirme, geriye zincirleme, alıştırmalar, quiz
+- **Bölüm 10–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
