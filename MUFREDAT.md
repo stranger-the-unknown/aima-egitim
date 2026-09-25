@@ -80,8 +80,8 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
 | 23 | `ch23-dogal-dil/` | Doğal dil işleme | 27 | 🟢 hazır |
-| 24 | `ch24-derin-dil/` | Derin öğrenme ile doğal dil | 28 | ⚪ planlı |
-| 25 | `ch25-bilgisayarli-goru/` | Bilgisayarlı görü | 29 | ⚪ planlı |
+| 24 | `ch24-derin-dil/` | Derin öğrenme ile doğal dil | 28 | 🟢 hazır |
+| 25 | `ch25-bilgisayarli-goru/` | Bilgisayarlı görü | 29 | 🟢 hazır |
 | 26 | `ch26-robotik/` | Robotik | 30 | ⚪ planlı |
 
 ---
