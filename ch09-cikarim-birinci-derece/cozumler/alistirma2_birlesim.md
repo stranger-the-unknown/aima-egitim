@@ -1,5 +1,5 @@
-# A2 çözümü — Birleştirme
+# Çözüm — A2: Elle birleştirme
 
-1. `f(?x)` ↔ `f(Ankara)` → `{ ?x / Ankara }`
-2. `f(?x)` ↔ `g(Ankara)` → **BAŞARISIZ** (functor farklı)
-3. `?x` ↔ `f(?x)` → **BAŞARISIZ** (occurs-check: değişken kendi içinde geçen terime bağlanamaz)
+1. f(x) ile f(Ankara) → **{x/Ankara}**
+2. f(x) ile g(Ankara) → **başarısız** (fonksiyon sembolleri farklı: f ≠ g)
+3. x ile f(x) → **başarısız** (occurs check: x, bağlanacağı f(x) teriminin içinde geçiyor; x = f(f(f(…))) sonsuz bir terim olurdu)
