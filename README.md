@@ -10,6 +10,7 @@ Russell & Norvig'in **Artificial Intelligence: A Modern Approach (AIMA), 4. bask
 - **Çalıştırılabilir örnekler** — arama, ajanlar, mantık vb. için net Python kodu
 - **Alıştırmalar ve quizler** — kavramı pekiştirmek için özgün sorular
 - **Müfredat yol haritası** — 28 bölüm, haftalık tempo önerisi
+- **Kapanış** — [`BITIRME.md`](BITIRME.md) tebrik + önerilen tekrar yolu
 
 Kitabı yasal olarak edinmeniz gerekir. Resmi kaynaklar:
 
@@ -93,6 +94,12 @@ python ch24-derin-dil/ornekler/embedding_benzerlik.py
 python ch24-derin-dil/ornekler/dikkat_skoru.py
 python ch25-bilgisayarli-goru/ornekler/konvolusyon_mini.py
 python ch25-bilgisayarli-goru/ornekler/histogram_ozellik.py
+python ch26-robotik/ornekler/grid_lokalizasyon.py
+python ch26-robotik/ornekler/potansiyel_alan_path.py
+python ch27-felsefe-etik/ornekler/etik_senaryo_karti.py --demo
+python ch27-felsefe-etik/ornekler/guvenlik_kontrol_listesi.py
+python ch28-AI-gelecek/ornekler/yetenek_haritasi.py
+python ch28-AI-gelecek/ornekler/proje_fikirleri.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -140,7 +147,10 @@ aima-egitim/
 ├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
 ├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
 ├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
-└── …
+├── ch26-robotik/                ← 🟢 hazır (lokalizasyon, potansiyel alan)
+├── ch27-felsefe-etik/           ← 🟢 hazır (senaryo kartı, güvenlik listesi)
+├── ch28-AI-gelecek/             ← 🟢 hazır (yetenek haritası, proje fikirleri)
+└── BITIRME.md                   ← tebrik + tekrar yolu
 ```
 
 ## Telif ve kullanım
@@ -159,6 +169,9 @@ aima-egitim/
 - **Bölüm 23 (Doğal dil):** 🟢 hazır — bigram LM, BoW naif Bayes, alıştırmalar, quiz
 - **Bölüm 24 (Derin dil):** 🟢 hazır — gömü kosinüs, dikkat softmax, alıştırmalar, quiz
 - **Bölüm 25 (Bilgisayarlı görü):** 🟢 hazır — 2D konvolüsyon, histogram özellik, alıştırmalar, quiz
-- **Bölüm 26–28:** müfredatta planlı
+- **Bölüm 26 (Robotik):** 🟢 hazır — ızgara lokalizasyonu, potansiyel alan yolu, alıştırmalar, quiz
+- **Bölüm 27 (Felsefe, etik, güvenlik):** 🟢 hazır — senaryo kartı, güvenlik kontrol listesi, alıştırmalar, quiz
+- **Bölüm 28 (AI’nin geleceği):** 🟢 hazır — yetenek haritası, proje fikirleri, alıştırmalar, quiz
+- **Müfredat 1–28:** 🟢 tamamlandı — bkz. [`BITIRME.md`](BITIRME.md)
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
