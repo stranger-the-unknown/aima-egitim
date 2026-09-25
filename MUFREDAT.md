@@ -52,8 +52,8 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 |---|--------|------|-------|-------|
 | 12 | `ch12-belirsiz-bilgi/` | Belirsiz bilginin nicelendirilmesi | 14 | 🟢 hazır |
 | 13 | `ch13-olasiliksal-akil/` | Olasılıksal akıl yürütme | 15–16 | 🟢 hazır |
-| 14 | `ch14-zamansal-olasilik/` | Zamansal olasılıksal modeller | 17 | ⚪ planlı |
-| 15 | `ch15-olasiliksal-programlama/` | Olasılıksal programlama | 18 | ⚪ planlı |
+| 14 | `ch14-zamansal-olasilik/` | Zamansal olasılıksal modeller | 17 | 🟢 hazır |
+| 15 | `ch15-olasiliksal-programlama/` | Olasılıksal programlama | 18 | 🟢 hazır |
 | 16 | `ch16-basit-kararlar/` | Basit kararlar alma | 19 | ⚪ planlı |
 | 17 | `ch17-karmasik-kararlar/` | Karmaşık kararlar alma | 20 | ⚪ planlı |
 | 18 | `ch18-cok-ajanli-karar/` | Çok ajanlı karar verme | 21 | ⚪ planlı |
