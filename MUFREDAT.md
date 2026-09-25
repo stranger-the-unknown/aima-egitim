@@ -56,7 +56,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | 15 | `ch15-olasiliksal-programlama/` | Olasılıksal programlama | 18 | 🟢 hazır |
 | 16 | `ch16-basit-kararlar/` | Basit kararlar alma | 19 | 🟢 hazır |
 | 17 | `ch17-karmasik-kararlar/` | Karmaşık kararlar alma | 20 | 🟢 hazır |
-| 18 | `ch18-cok-ajanli-karar/` | Çok ajanlı karar verme | 21 | ⚪ planlı |
+| 18 | `ch18-cok-ajanli-karar/` | Çok ajanlı karar verme | 21 | 🟢 hazır |
 
 ---
 
@@ -66,7 +66,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
-| 19 | `ch19-ogrenme-orneklerden/` | Örneklerden öğrenme | 22–23 | ⚪ planlı |
+| 19 | `ch19-ogrenme-orneklerden/` | Örneklerden öğrenme | 22–23 | 🟢 hazır |
 | 20 | `ch20-bilgi-ogrenme/` | Bilgi öğrenme | 24 | ⚪ planlı |
 | 21 | `ch21-derin-ogrenme/` | Derin öğrenme | 25 | ⚪ planlı |
 | 22 | `ch22-pekistirmeli-ogrenme/` | Pekiştirmeli öğrenme | 26 | ⚪ planlı |
