@@ -62,7 +62,6 @@ python ch08-birinci-derece-mantik/ornekler/fol_ceviri.py
 python ch09-cikarim-birinci-derece/ornekler/birlesim_unification.py
 python ch09-cikarim-birinci-derece/ornekler/geriye_zincir.py
 python ch10-bilgi-temsili/ornekler/ontoloji_mini.py
-python ch10-bilgi-temsili/ornekler/varsayilan_akil.py
 python ch11-klasik-planlama/ornekler/aksiyon_semasi.py
 python ch11-klasik-planlama/ornekler/strips_bloklar.py
 python ch12-belirsiz-bilgi/ornekler/bayes_kurali.py
@@ -85,6 +84,10 @@ python ch20-bilgi-ogrenme/ornekler/mle_beta_Bernoulli.py
 python ch20-bilgi-ogrenme/ornekler/em_karisim_mini.py
 python ch21-derin-ogrenme/ornekler/aktivasyon_goster.py
 python ch21-derin-ogrenme/ornekler/mlp_numpy_mini.py
+python ch22-pekistirmeli-ogrenme/ornekler/q_ogrenme_grid.py
+python ch22-pekistirmeli-ogrenme/ornekler/epsilon_greedy_bandit.py
+python ch23-dogal-dil/ornekler/n_gram_mini.py
+python ch23-dogal-dil/ornekler/bow_siniflandirma.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -119,7 +122,7 @@ aima-egitim/
 ├── ch10-bilgi-temsili/          ← 🟢 hazır (ontoloji, default)
 ├── ch11-klasik-planlama/        ← 🟢 hazır (STRIPS BFS)
 ├── ch12-belirsiz-bilgi/         ← 🟢 hazır (Bayes, naif Bayes)
-├── ch13-olasiliksal-akil/       ← 🟢 hazır (Bayes ağı, enumeration)
+├── ch13-olasiliksal-akil/        ← 🟢 hazır (Bayes ağı, enumeration)
 ├── ch14-zamansal-olasilik/      ← 🟢 hazır (HMM filtre, Viterbi)
 ├── ch15-olasiliksal-programlama/ ← 🟢 hazır (üretimsel model, reddetme)
 ├── ch16-basit-kararlar/         ← 🟢 hazır (MEU, VOI)
@@ -128,6 +131,8 @@ aima-egitim/
 ├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
 ├── ch20-bilgi-ogrenme/          ← 🟢 hazır (MLE/MAP, EM mini)
 ├── ch21-derin-ogrenme/          ← 🟢 hazır (numpy MLP XOR, aktivasyon)
+├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (Q-öğrenme, bandit)
+├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
 └── …
 ```
 
@@ -143,6 +148,8 @@ aima-egitim/
 - **Bölüm 1–19:** 🟢 hazır (önceki commit’lerde)
 - **Bölüm 20 (Olasılıksal modellerle öğrenme):** 🟢 hazır — MLE/MAP Bernoulli, EM iki-para, alıştırmalar, quiz
 - **Bölüm 21 (Derin öğrenme):** 🟢 hazır — aktivasyon karşılaştırma, numpy MLP XOR, alıştırmalar, quiz
-- **Bölüm 22–28:** müfredatta planlı
+- **Bölüm 22 (Pekiştirmeli öğrenme):** 🟢 hazır — Q-öğrenme gridworld, ε-açgözlü bandit, alıştırmalar, quiz
+- **Bölüm 23 (Doğal dil):** 🟢 hazır — bigram LM, BoW naif Bayes, alıştırmalar, quiz
+- **Bölüm 24–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
