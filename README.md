@@ -77,6 +77,10 @@ python ch16-basit-kararlar/ornekler/beklenen_fayda.py
 python ch16-basit-kararlar/ornekler/voi_mini.py
 python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
 python ch17-karmasik-kararlar/ornekler/politika_degerlendirme.py
+python ch18-cok-ajanli-karar/ornekler/mahkum_ikilemi.py
+python ch18-cok-ajanli-karar/ornekler/nash_2x2.py
+python ch19-ogrenme-orneklerden/ornekler/karar_agaci_mini.py
+python ch19-ogrenme-orneklerden/ornekler/lineer_siniflandirma.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -116,6 +120,8 @@ aima-egitim/
 ├── ch15-olasiliksal-programlama/ ← 🟢 hazır (üretimsel model, reddetme)
 ├── ch16-basit-kararlar/         ← 🟢 hazır (MEU, VOI)
 ├── ch17-karmasik-kararlar/      ← 🟢 hazır (MDP, değer yineleme)
+├── ch18-cok-ajanli-karar/       ← 🟢 hazır (oyun teorisi, Nash)
+├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
 └── …
 ```
 
@@ -145,6 +151,8 @@ aima-egitim/
 - **Bölüm 15 (Olasılıksal programlama):** 🟢 hazır — üretimsel model, reddetme örnekleme, alıştırmalar, quiz
 - **Bölüm 16 (Basit kararlar):** 🟢 hazır — fayda/MEU, VOI mini, alıştırmalar, quiz
 - **Bölüm 17 (Karmaşık kararlar / MDP):** 🟢 hazır — değer yineleme, politika değerlendirme, alıştırmalar, quiz
-- **Bölüm 18–28:** müfredatta planlı
+- **Bölüm 18 (Çok ajanlı karar):** 🟢 hazır — normal form, Mahkûm İkilemi, Nash 2×2, alıştırmalar, quiz
+- **Bölüm 19 (Örneklerden öğrenme):** 🟢 hazır — karar ağacı mini, perceptron, alıştırmalar, quiz
+- **Bölüm 20–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
