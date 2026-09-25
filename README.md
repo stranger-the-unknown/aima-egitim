@@ -73,6 +73,10 @@ python ch14-zamansal-olasilik/ornekler/hmm_filtreleme.py
 python ch14-zamansal-olasilik/ornekler/viterbi_kucuk.py
 python ch15-olasiliksal-programlama/ornekler/basit_uretimsel_model.py
 python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
+python ch16-basit-kararlar/ornekler/beklenen_fayda.py
+python ch16-basit-kararlar/ornekler/voi_mini.py
+python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
+python ch17-karmasik-kararlar/ornekler/politika_degerlendirme.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -110,6 +114,8 @@ aima-egitim/
 ├── ch13-olasiliksal-akil/       ← 🟢 hazır (Bayes ağı, enumeration)
 ├── ch14-zamansal-olasilik/      ← 🟢 hazır (HMM filtre, Viterbi)
 ├── ch15-olasiliksal-programlama/ ← 🟢 hazır (üretimsel model, reddetme)
+├── ch16-basit-kararlar/         ← 🟢 hazır (MEU, VOI)
+├── ch17-karmasik-kararlar/      ← 🟢 hazır (MDP, değer yineleme)
 └── …
 ```
 
@@ -137,6 +143,8 @@ aima-egitim/
 - **Bölüm 13 (Olasılıksal akıl):** 🟢 hazır — Bayes ağı CPT, enumeration, alıştırmalar, quiz
 - **Bölüm 14 (Zamansal olasılık):** 🟢 hazır — HMM forward filtre, Viterbi, alıştırmalar, quiz
 - **Bölüm 15 (Olasılıksal programlama):** 🟢 hazır — üretimsel model, reddetme örnekleme, alıştırmalar, quiz
-- **Bölüm 16–28:** müfredatta planlı
+- **Bölüm 16 (Basit kararlar):** 🟢 hazır — fayda/MEU, VOI mini, alıştırmalar, quiz
+- **Bölüm 17 (Karmaşık kararlar / MDP):** 🟢 hazır — değer yineleme, politika değerlendirme, alıştırmalar, quiz
+- **Bölüm 18–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
