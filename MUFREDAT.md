@@ -50,8 +50,8 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
-| 12 | `ch12-belirsiz-bilgi/` | Belirsiz bilginin nicelendirilmesi | 14 | ⚪ planlı |
-| 13 | `ch13-olasiliksal-akil/` | Olasılıksal akıl yürütme | 15–16 | ⚪ planlı |
+| 12 | `ch12-belirsiz-bilgi/` | Belirsiz bilginin nicelendirilmesi | 14 | 🟢 hazır |
+| 13 | `ch13-olasiliksal-akil/` | Olasılıksal akıl yürütme | 15–16 | 🟢 hazır |
 | 14 | `ch14-zamansal-olasilik/` | Zamansal olasılıksal modeller | 17 | ⚪ planlı |
 | 15 | `ch15-olasiliksal-programlama/` | Olasılıksal programlama | 18 | ⚪ planlı |
 | 16 | `ch16-basit-kararlar/` | Basit kararlar alma | 19 | ⚪ planlı |
