@@ -1,39 +1,54 @@
 # Bölüm 5 — Rakip arama ve oyunlar
 
-AIMA 4. baskı, Bölüm 5 ile uyumlu **özgün Türkçe** öğrenme paketi.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 5 · *Adversarial Search and Games*
 
 ## Öğrenme hedefleri
 
-1. Deterministik, sıfır toplamlı, mükemmel bilgili oyunlarda **minimax** fikrini uygulamak.
-2. **Alpha-beta budama** ile aynı sonucu daha az düğümle bulmayı anlamak.
-3. Derinlik sınırı + **değerlendirme fonksiyonu** ile “kusurlu karar”ı açıklamak.
-4. Tic-tac-toe örneğinde ajan–ajan veya pozisyondan en iyi hamleyi hesaplamak.
+1. Bir oyunu biçimsel olarak tanımlamak; minimax değerini hesaplamak.
+2. Alfa-beta budamayı izlemek ve hamle sıralamasının etkisini sayısal olarak göstermek.
+3. Sezgisel alfa-betanın bileşenlerini (değerlendirme, kesme, sessizlik, transpozisyon tablosu) açıklamak.
+4. MCTS'i ve UCB1'i uygulamak.
+5. Şans düğümlü oyunlarda beklenti-minimaksı açıklamak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ornekler/minimax_tictactoe.py` | Minimax (+ isteğe bağlı alpha-beta) XOX |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | İlk 2 alıştırmanın çözümleri |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 5'i oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır.
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA Bölüm 5’i oku (yasal nüsha).
-2. `notlar.md` ile pekiştir.
-3. Örneği çalıştır:
-   ```bash
-   python ornekler/minimax_tictactoe.py --mod ajan-ajan
-   python ornekler/minimax_tictactoe.py --mod en-iyi --tahta "X.O.X.O.."
-   python ornekler/minimax_tictactoe.py --mod ajan-ajan --alpha-beta
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/minimax_tictactoe.py` | XOX: minimax, alfa-beta, ağaç istatistikleri, "hızlı kazan" seçeneği |
+| `ornekler/oyun_agaci.py` | Kitaptaki iki katlı ağaç, alfa-beta izi, hamle sıralaması deneyi |
+| `ornekler/dortlu_ab.py` | Dört-Bir-Arada: sezgisel alfa-beta, EVAL, sıralama, sınır bayraklı TT; `--oyna` |
+| `ornekler/mcts_xox.py` | UCT-MCTS, kitaptaki UCB1 örneği, minimax'a karşı maçlar |
+| `ornekler/beklenti_minimax.py` | Şans düğümleri; sırayı koruyan dönüşümün kararı değiştirmesi |
+| `alistirmalar.md` | 10 alıştırma |
+| `cozumler/` | Tüm çözümler (A7, A8, A10 kod) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+```bash
+python ornekler/minimax_tictactoe.py --mod istatistik
+python ornekler/oyun_agaci.py
+python ornekler/dortlu_ab.py
+python ornekler/mcts_xox.py
+python ornekler/beklenti_minimax.py
+```
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+## Kitapla doğrulama
+
+`tests/test_ch05_oyunlar.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| XOX farklı durum sayısı | 5.478 | ✔ |
+| XOX yaprak sayısı | < 9! = 362.880 | ✔ (255.168) |
+| İki katlı ağaç: B, C, D, A | 3, 2, 2, 3 | ✔ |
+| Alfa-betanın budadığı yapraklar | C'nin 4 ve 6 yaprakları | ✔ |
+| UCB1, ebeveyn 100; C = 1,4 / C = 1,5 | 60/79 / 2/11 seçilir | ✔ |
+| Sırayı koruyan dönüşüm | [1,2,3,4] → a1, [1,20,30,400] → a2 | ✔ |
+| Mükemmel sıralamada yaprak sayısı | ≈ b^(m/2) | ✔ (Knuth–Moore, tam eşitlik) |
