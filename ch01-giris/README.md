@@ -2,6 +2,8 @@
 
 AIMA 4. baskı, Bölüm 1 ile uyumlu **özgün Türkçe** öğrenme paketi.
 
+**Durum:** 🟢 hazır
+
 ## Öğrenme hedefleri
 
 Bu bölümü bitirdiğinde şunları yapabilmelisin:
@@ -17,6 +19,7 @@ Bu bölümü bitirdiğinde şunları yapabilmelisin:
 | Dosya / klasör | İçerik |
 |----------------|--------|
 | `notlar.md` | Özgün Türkçe öğretim notları |
+| `ozet.md` | Tek sayfalık çalışma özeti |
 | `ornekler/` | `vacuum_agent.py`, `peas_ornekleri.py` |
 | `alistirmalar.md` | 5 özgün alıştırma |
 | `cozumler/` | İlk 2 alıştırmanın çözümleri |
@@ -25,7 +28,7 @@ Bu bölümü bitirdiğinde şunları yapabilmelisin:
 ## Nasıl çalış?
 
 1. Kitapta Bölüm 1’i oku (yasal nüsha).
-2. `notlar.md` ile pekiştir.
+2. `notlar.md` ile pekiştir; hızlı tekrar için `ozet.md`.
 3. Örnekleri çalıştır:
    ```bash
    python ornekler/vacuum_agent.py
