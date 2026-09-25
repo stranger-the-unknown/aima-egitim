@@ -24,8 +24,8 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
 | 3 | `ch03-cozum-arama/` | Çözüm arama yoluyla problem çözme | 3–4 | 🟢 hazır |
-| 4 | `ch04-karmasik-ortamlar/` | Karmaşık ortamlarda arama | 5 | 🟡 stub |
-| 5 | `ch05-rakip-arama/` | Rakip arama ve oyunlar | 6–7 | 🟡 stub |
+| 4 | `ch04-karmasik-ortamlar/` | Karmaşık ortamlarda arama | 5 | 🟢 hazır |
+| 5 | `ch05-rakip-arama/` | Rakip arama ve oyunlar | 6–7 | 🟢 hazır |
 | 6 | `ch06-kisit-saglama/` | Kısıt sağlama problemleri | 8 | 🟡 stub |
 
 ---
