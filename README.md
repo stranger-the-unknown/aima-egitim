@@ -65,6 +65,10 @@ python ch10-bilgi-temsili/ornekler/ontoloji_mini.py
 python ch10-bilgi-temsili/ornekler/varsayilan_akil.py
 python ch11-klasik-planlama/ornekler/aksiyon_semasi.py
 python ch11-klasik-planlama/ornekler/strips_bloklar.py
+python ch12-belirsiz-bilgi/ornekler/bayes_kurali.py
+python ch12-belirsiz-bilgi/ornekler/naive_bayes_mini.py
+python ch13-olasiliksal-akil/ornekler/cpt_goster.py
+python ch13-olasiliksal-akil/ornekler/bayes_agi_kucuk.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -98,6 +102,8 @@ aima-egitim/
 ├── ch09-cikarim-birinci-derece/ ← 🟢 hazır (unify, geriye zincir)
 ├── ch10-bilgi-temsili/          ← 🟢 hazır (ontoloji, default)
 ├── ch11-klasik-planlama/        ← 🟢 hazır (STRIPS BFS)
+├── ch12-belirsiz-bilgi/         ← 🟢 hazır (Bayes, naif Bayes)
+├── ch13-olasiliksal-akil/       ← 🟢 hazır (Bayes ağı, enumeration)
 └── …
 ```
 
@@ -121,6 +127,8 @@ aima-egitim/
 - **Bölüm 9 (FOL çıkarım):** 🟢 hazır — birleştirme, geriye zincirleme, alıştırmalar, quiz
 - **Bölüm 10 (Bilgi temsili):** 🟢 hazır — kategori/ontoloji, varsayılan akıl, alıştırmalar, quiz
 - **Bölüm 11 (Klasik planlama):** 🟢 hazır — STRIPS şema, bloklar BFS, alıştırmalar, quiz
-- **Bölüm 12–28:** müfredatta planlı
+- **Bölüm 12 (Belirsiz bilgi):** 🟢 hazır — olasılık, Bayes kuralı, naif Bayes mini, alıştırmalar, quiz
+- **Bölüm 13 (Olasılıksal akıl):** 🟢 hazır — Bayes ağı CPT, enumeration, alıştırmalar, quiz
+- **Bölüm 14–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
