@@ -37,8 +37,8 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
 | 7 | `ch07-mantiksal-ajanlar/` | Mantıksal ajanlar | 9 | 🟢 hazır |
-| 8 | `ch08-birinci-mertebe-mantik/` | Birinci mertebe mantık | 10 | ⚪ planlı |
-| 9 | `ch09-cikarim-birinci-mertebe/` | Birinci mertebe mantıkta çıkarım | 11 | ⚪ planlı |
+| 8 | `ch08-birinci-derece-mantik/` | Birinci derece mantık | 10 | 🟢 hazır |
+| 9 | `ch09-cikarim-birinci-derece/` | Birinci derece mantıkta çıkarım | 11 | 🟢 hazır |
 | 10 | `ch10-bilgi-temsil/` | Bilgi temsili | 12 | ⚪ planlı |
 | 11 | `ch11-otomotik-planlama/` | Otomatik planlama | 13 | ⚪ planlı |
 
