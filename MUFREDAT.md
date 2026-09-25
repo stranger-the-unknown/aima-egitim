@@ -26,7 +26,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | 3 | `ch03-cozum-arama/` | Çözüm arama yoluyla problem çözme | 3–4 | 🟢 hazır |
 | 4 | `ch04-karmasik-ortamlar/` | Karmaşık ortamlarda arama | 5 | 🟢 hazır |
 | 5 | `ch05-rakip-arama/` | Rakip arama ve oyunlar | 6–7 | 🟢 hazır |
-| 6 | `ch06-kisit-saglama/` | Kısıt sağlama problemleri | 8 | 🟡 stub |
+| 6 | `ch06-kisit-saglama/` | Kısıt sağlama problemleri | 8 | 🟢 hazır |
 
 ---
 
@@ -36,7 +36,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
-| 7 | `ch07-mantiksal-ajanlar/` | Mantıksal ajanlar | 9 | 🟡 stub |
+| 7 | `ch07-mantiksal-ajanlar/` | Mantıksal ajanlar | 9 | 🟢 hazır |
 | 8 | `ch08-birinci-mertebe-mantik/` | Birinci mertebe mantık | 10 | ⚪ planlı |
 | 9 | `ch09-cikarim-birinci-mertebe/` | Birinci mertebe mantıkta çıkarım | 11 | ⚪ planlı |
 | 10 | `ch10-bilgi-temsil/` | Bilgi temsili | 12 | ⚪ planlı |
