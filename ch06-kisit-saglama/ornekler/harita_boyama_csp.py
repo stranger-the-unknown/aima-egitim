@@ -1,190 +1,84 @@
 #!/usr/bin/env python3
-"""Türkiye bölgeleri harita boyama — CSP backtracking (+ isteğe bağlı MRV).
+"""Türkiye'nin 7 coğrafi bölgesini boyamak: 3 renk yeter mi?
 
-Komşu bölgeler farklı renk almalı. Eğitim amaçlı; kitap metni kopyası değildir.
-Resmi referans: https://aima.cs.berkeley.edu/ · https://github.com/aimacode
+Komşuluklar il sınırlarına göredir. İki bölge, en az bir ilinin sınırı ortaksa komşudur:
+    Marmara     – Ege, İç Anadolu, Karadeniz
+    Ege         – Marmara, İç Anadolu, Akdeniz
+    Akdeniz     – Ege, İç Anadolu, Güneydoğu, Doğu Anadolu (Kahramanmaraş–Malatya)
+    İç Anadolu  – Marmara, Ege, Akdeniz, Karadeniz, Doğu Anadolu
+    Karadeniz   – Marmara, İç Anadolu, Doğu Anadolu
+    Doğu Anadolu– İç Anadolu, Karadeniz, Akdeniz, Güneydoğu
+    Güneydoğu   – Akdeniz, Doğu Anadolu   (İç Anadolu ile ortak sınırı YOKTUR)
+
+Sonuç: Bu harita **3 renkle boyanamaz**, 4 renk gerekir. Geri izleme araması bunu
+tüm olasılıkları dolaşarak kanıtlar. (Dört renk teoremi: düzlemdeki her harita 4 renkle
+boyanabilir; bu harita o sınırın tam üstünde.)
+
+Çalıştırma:
+    python harita_boyama_csp.py                  # 3 renk (başarısız) ve 4 renk
+    python harita_boyama_csp.py --renk 4 --mrv --forward
+    python harita_boyama_csp.py --karsilastir    # sezgisellerin maliyeti
 """
 from __future__ import annotations
 
 import argparse
-from typing import Dict, List, Optional, Tuple
 
-# Basitleştirilmiş Türkiye coğrafi bölgeleri (7 bölge) ve komşuluklar.
-BOLGELER = [
-    "Marmara",
-    "Ege",
-    "Akdeniz",
-    "IcAnadolu",
-    "Karadeniz",
-    "Doguanadolu",
-    "Guneydogu",
-]
+from kisit import CSP, geri_izleme
 
-KOMŞULUK: Dict[str, List[str]] = {
+BOLGELER = ["Marmara", "Ege", "Akdeniz", "IcAnadolu", "Karadeniz", "Doguanadolu", "Guneydogu"]
+KOMSULUK = {
     "Marmara": ["Ege", "IcAnadolu", "Karadeniz"],
-    "Ege": ["Marmara", "Akdeniz", "IcAnadolu"],
-    "Akdeniz": ["Ege", "IcAnadolu", "Guneydogu"],
-    "IcAnadolu": ["Marmara", "Ege", "Akdeniz", "Karadeniz", "Doguanadolu", "Guneydogu"],
+    "Ege": ["Marmara", "IcAnadolu", "Akdeniz"],
+    "Akdeniz": ["Ege", "IcAnadolu", "Guneydogu", "Doguanadolu"],
+    "IcAnadolu": ["Marmara", "Ege", "Akdeniz", "Karadeniz", "Doguanadolu"],
     "Karadeniz": ["Marmara", "IcAnadolu", "Doguanadolu"],
-    "Doguanadolu": ["Karadeniz", "IcAnadolu", "Guneydogu"],
-    "Guneydogu": ["Akdeniz", "IcAnadolu", "Doguanadolu"],
+    "Doguanadolu": ["IcAnadolu", "Karadeniz", "Akdeniz", "Guneydogu"],
+    "Guneydogu": ["Akdeniz", "Doguanadolu"],
 }
-
-RENKLER_VARSAYILAN = ["Kirmizi", "Yesil", "Mavi"]
-
-
-def komşular_farkli(atama: Dict[str, str], degisken: str, deger: str) -> bool:
-    """degisken=deger ataması mevcut atamayla komşuluk kısıtını bozar mı?"""
-    for komsu in KOMŞULUK[degisken]:
-        if komsu in atama and atama[komsu] == deger:
-            return False
-    return True
+RENKLER = ["Kirmizi", "Yesil", "Mavi", "Sari"]
 
 
-def sec_degisken(
-    atanmamis: List[str],
-    domainler: Dict[str, List[str]],
-    atama: Dict[str, str],
-    mrv: bool,
-) -> str:
-    """MRV: kalan domaini en küçük olan; beraberlikte derece (komşu sayısı)."""
-    if not mrv:
-        return atanmamis[0]
-
-    def anahtar(v: str) -> Tuple[int, int]:
-        kalan = len(domainler[v])
-        # Atanmamış komşu sayısı = derece sezgiseli (tie-break)
-        derece = sum(1 for k in KOMŞULUK[v] if k not in atama)
-        return (kalan, -derece)
-
-    return min(atanmamis, key=anahtar)
+def turkiye(renk_sayisi: int) -> CSP:
+    return CSP(BOLGELER, {b: RENKLER[:renk_sayisi] for b in BOLGELER}, KOMSULUK)
 
 
-def ileri_kontrol(
-    degisken: str,
-    deger: str,
-    atama: Dict[str, str],
-    domainler: Dict[str, List[str]],
-) -> Optional[Dict[str, List[str]]]:
-    """Atama sonrası komşu domainlerinden deger'i sil. Boş domain → None."""
-    yeni = {v: list(domainler[v]) for v in domainler}
-    for komsu in KOMŞULUK[degisken]:
-        if komsu in atama:
-            continue
-        if deger in yeni[komsu]:
-            yeni[komsu] = [d for d in yeni[komsu] if d != deger]
-            if not yeni[komsu]:
-                return None
-    return yeni
-
-
-def backtrack(
-    atama: Dict[str, str],
-    domainler: Dict[str, List[str]],
-    *,
-    mrv: bool,
-    forward: bool,
-    sayac: Dict[str, int],
-) -> Optional[Dict[str, str]]:
-    sayac["adim"] += 1
-    if len(atama) == len(BOLGELER):
-        return dict(atama)
-
-    atanmamis = [v for v in BOLGELER if v not in atama]
-    var = sec_degisken(atanmamis, domainler, atama, mrv)
-
-    for deger in list(domainler[var]):
-        if not komşular_farkli(atama, var, deger):
-            continue
-        atama[var] = deger
-        sayac["deneme"] += 1
-        if forward:
-            yeni_dom = ileri_kontrol(var, deger, atama, domainler)
-            if yeni_dom is None:
-                del atama[var]
-                continue
-            sonuc = backtrack(atama, yeni_dom, mrv=mrv, forward=forward, sayac=sayac)
-        else:
-            sonuc = backtrack(atama, domainler, mrv=mrv, forward=forward, sayac=sayac)
-        if sonuc is not None:
-            return sonuc
-        del atama[var]
-    return None
-
-
-def coz(renkler: List[str], mrv: bool, forward: bool) -> Tuple[Optional[Dict[str, str]], Dict[str, int]]:
-    domainler = {b: list(renkler) for b in BOLGELER}
-    sayac = {"adim": 0, "deneme": 0}
-    sonuc = backtrack({}, domainler, mrv=mrv, forward=forward, sayac=sayac)
-    return sonuc, sayac
-
-
-def yazdir_cozum(atama: Dict[str, str]) -> None:
-    print("\n=== Harita boyama çözümü ===")
-    genislik = max(len(b) for b in BOLGELER)
-    for b in BOLGELER:
-        print(f"  {b:<{genislik}} → {atama[b]}")
-    # Kısıt doğrulama
-    for b in BOLGELER:
-        for k in KOMŞULUK[b]:
-            if atama[b] == atama[k]:
-                print(f"HATA: {b} ve {k} aynı renk!")
-                return
-    print("Tüm komşuluk kısıtları sağlandı.")
+def coz(renk_sayisi: int, mrv: bool = False, ileri: bool = False):
+    return geri_izleme(turkiye(renk_sayisi), "mrv" if mrv else "sirali", "sirali",
+                       "ileri" if ileri else "yok")
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="Türkiye bölgeleri CSP harita boyama")
-    p.add_argument("--mrv", action="store_true", help="MRV + derece tie-break kullan")
-    p.add_argument(
-        "--forward",
-        action="store_true",
-        help="İleriye kontrol (forward checking) aç",
-    )
-    p.add_argument(
-        "--renkler",
-        default=",".join(RENKLER_VARSAYILAN),
-        help="Virgülle ayrılmış renk listesi (varsayılan 3 renk)",
-    )
-    p.add_argument(
-        "--karsilastir",
-        action="store_true",
-        help="Düz BT vs MRV+FC deneme sayılarını karşılaştır",
-    )
-    args = p.parse_args()
-    renkler = [r.strip() for r in args.renkler.split(",") if r.strip()]
-
-    print("Türkiye coğrafi bölgeleri — harita boyama CSP")
-    print(f"Değişkenler: {', '.join(BOLGELER)}")
-    print(f"Domain: {renkler}")
-    print(f"Kısıt: komşu bölgeler farklı renk\n")
+    ap = argparse.ArgumentParser(description="Türkiye bölgeleri harita boyama CSP")
+    ap.add_argument("--renk", type=int, choices=[3, 4], default=None)
+    ap.add_argument("--mrv", action="store_true", help="MRV (+ derece ile eşitlik bozma)")
+    ap.add_argument("--forward", action="store_true", help="ileri kontrol")
+    ap.add_argument("--karsilastir", action="store_true")
+    args = ap.parse_args()
 
     if args.karsilastir:
-        for etiket, mrv, fwd in [
-            ("Düz backtracking", False, False),
-            ("MRV", True, False),
-            ("MRV + ileriye kontrol", True, True),
-        ]:
-            sol, say = coz(renkler, mrv, fwd)
-            durum = "çözüldü" if sol else "çözüm yok"
-            print(f"  [{etiket}] {durum} — adım≈{say['adim']}, değer denemesi={say['deneme']}")
+        print(f"{'renk':>5}{'ayar':>22}{'atama':>8}{'geri dönüş':>12}   sonuç")
+        for k in (3, 4):
+            for mrv, ileri in ((False, False), (True, False), (False, True), (True, True)):
+                c, ist = coz(k, mrv, ileri)
+                ayar = ("MRV" if mrv else "sıralı") + (" + ileri" if ileri else "")
+                print(f"{k:>5}{ayar:>22}{ist.atama:>8}{ist.geri_donus:>12}   {'çözüm' if c else 'yok'}")
+        return
+
+    for k in ([args.renk] if args.renk else [3, 4]):
+        c, ist = coz(k, args.mrv, args.forward)
+        print(f"=== {k} renk ===")
+        if not c:
+            print(f"  Çözüm YOK. Arama {ist.atama} atama deneyip {ist.geri_donus} kez geri döndü ve"
+                  "\n  bütün olasılıkları tükenmiş buldu: 3 renk bu harita için yetersiz.")
+        else:
+            for b in BOLGELER:
+                print(f"  {b:<12} → {c[0][b]}")
+            print(f"  ({ist.atama} atama, {ist.geri_donus} geri dönüş)")
         print()
-        # Son olarak en iyi ayarla göster
-        args.mrv, args.forward = True, True
-
-    sonuc, sayac = coz(renkler, args.mrv, args.forward)
-    mod = []
-    if args.mrv:
-        mod.append("MRV")
-    if args.forward:
-        mod.append("ileriye-kontrol")
-    print(f"Mod: {', '.join(mod) if mod else 'düz backtracking'}")
-    print(f"İstatistik: adım≈{sayac['adim']}, değer denemesi={sayac['deneme']}")
-
-    if sonuc is None:
-        print("Çözüm bulunamadı (renk sayısı yetersiz olabilir).")
-    else:
-        yazdir_cozum(sonuc)
+    print("Neden 3 renk yetmez? İç Anadolu, Akdeniz ve Doğu Anadolu karşılıklı komşudur: 1, 2, 3 renklerini"
+          "\nalırlar. Güneydoğu (Akdeniz + D. Anadolu komşusu) 1'e, Karadeniz (İç Anadolu + D. Anadolu"
+          "\nkomşusu) 2'ye, Marmara (İç Anadolu + Karadeniz komşusu) 3'e zorlanır. Ege ise Marmara (3),"
+          "\nİç Anadolu (1) ve Akdeniz'e (2) komşudur: renk kalmaz.")
 
 
 if __name__ == "__main__":

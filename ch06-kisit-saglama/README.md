@@ -1,40 +1,51 @@
 # Bölüm 6 — Kısıt sağlama problemleri (CSP)
 
-AIMA 4. baskı, Bölüm 6 ile uyumlu **özgün Türkçe** öğrenme paketi.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 6 · *Constraint Satisfaction Problems*
 
 ## Öğrenme hedefleri
 
-1. Bir sorunu **değişkenler**, **domainler** ve **kısıtlar** olarak modellemek.
-2. **Geri dönüşlü arama (backtracking)** ile çözüm aramak.
-3. **İleriye kontrol (forward checking)** ve **AC-3** sezgisini açıklamak.
-4. **MRV**, **derece** ve **LCV** sezgiselleriyle arama sırasını iyileştirmek.
+1. Problemleri değişken, alan ve kısıt olarak modellemek.
+2. AC-3'ü uygulamak; yay tutarlılığının güç ve sınırlarını göstermek.
+3. Geri izlemeyi MRV, derece, LCV, ileri kontrol ve MAC ile hızlandırmak ve etkilerini ölçmek.
+4. Min-çatışma yerel aramasını açıklamak.
+5. Ağaç yapısı, kesme kümesi ve simetriden yararlanmak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları (CSP) |
-| `ornekler/harita_boyama_csp.py` | Türkiye bölgeleri harita boyama + backtracking / MRV |
-| `ornekler/n_vezir_csp.py` | N-vezir probleminin CSP olarak kısa çözümü |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | İlk 2 alıştırmanın çözümleri |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 6'yı oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır.
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA Bölüm 6’yı oku (yasal nüsha).
-2. `notlar.md` ile pekiştir.
-3. Örnekleri çalıştır:
-   ```bash
-   python ornekler/harita_boyama_csp.py
-   python ornekler/harita_boyama_csp.py --mrv
-   python ornekler/n_vezir_csp.py --n 8
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/kisit.py` | CSP kütüphanesi: AC-3, geri izleme (MRV/derece/LCV, ileri kontrol/MAC), min-çatışma, ağaç çözücü, kesme kümesi |
+| `ornekler/avustralya_csp.py` | Kitaptaki örnek: ileri kontrol izi, MAC, LCV, 18 çözüm, {SA} kesme kümesi |
+| `ornekler/harita_boyama_csp.py` | Türkiye'nin 7 bölgesi (il sınırlarına göre): 3 renk yetmez, 4 renk yeter |
+| `ornekler/n_vezir_csp.py` | N-vezir: sezgisellerin ve çıkarımın maliyete etkisi |
+| `ornekler/min_catisma_vezir.py` | Min-çatışma (numpy): adım sayısı n'den bağımsız |
+| `ornekler/sudoku_csp.py` | Sudoku: AC-3 kolay bulmacayı tek başına çözer; zor bulmaca için MRV + MAC |
+| `ornekler/kriptaritmetik.py` | TWO + TWO = FOUR (7 çözüm), SEND + MORE = MONEY |
+| `alistirmalar.md` | 10 alıştırma |
+| `cozumler/` | Tüm çözümler (A7, A9, A10 kod) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+> **Düzeltme notu:** Deponun ilk sürümünde Türkiye haritasının komşulukları hatalıydı (İç Anadolu–Güneydoğu sınırı eklenmiş, Akdeniz–Doğu Anadolu sınırı atlanmıştı) ve harita 3 renkle "çözülüyordu". Gerçek komşuluklarla 4 renk gerekir; bkz. A3 çözümü.
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+## Kitapla doğrulama
+
+`tests/test_ch06_csp.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| Avustralya, 3 renk, çözüm sayısı | 6 × 3 = 18 (renk permütasyonları × Tazmanya) | ✔ |
+| İleri kontrol: WA=K, Q=Y, V=M sonrası SA | boş alan | ✔ |
+| MAC: WA=K, Q=Y | tutarsızlığı hemen bulur | ✔ |
+| LCV: WA=K, NT=Y iken Q | kırmızı, maviden önce | ✔ |
+| {SA} kesme kümesi | kalan graf ağaç | ✔ |
+| NT < SA < WA simetri kırma | d! kat azalma (18 → 3) | ✔ |
+| Min-çatışma, büyük n | adım sayısı n'den bağımsız | ✔ |
+| TWO + TWO = FOUR | (çözüm sayısı: 7, kaba kuvvetle doğrulandı) | ✔ |
