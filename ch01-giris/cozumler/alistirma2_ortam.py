@@ -27,7 +27,7 @@ SENARYOLAR = [
             "Epizodiklik": "Ardışık — her hamle sonraki durumu belirler.",
             "Dinamiklik": "Yarı dinamik — süre akar; düşünürken saat tükenir.",
             "Süreklilik": "Ayrık durum (taş konumları); zaman süreklidir.",
-            "Ajan sayısı": "Çok ajan — siz + rakip.",
+            "Ajan sayısı": "Çok ajan — rekabetçi (siz + rakip).",
         },
     },
     {

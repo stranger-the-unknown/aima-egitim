@@ -49,7 +49,7 @@ PEAS_ORNEKLERI: list[dict[str, Any]] = [
             "Hekim için açıklanabilir öneriler sunmak",
         ],
         "E": [
-            "Elektronik hasta kaydı alanları",
+            "Klinik bilgi sistemi (hasta kayıtları)",
             "Laboratuvar ve görüntüleme sonuçları",
             "Hekim ve hasta etkileşimi",
             "Hastane protokol ve kılavuzları",
