@@ -89,6 +89,10 @@ python ch22-pekistirmeli-ogrenme/ornekler/q_ogrenme_grid.py
 python ch22-pekistirmeli-ogrenme/ornekler/epsilon_greedy_bandit.py
 python ch23-dogal-dil/ornekler/n_gram_mini.py
 python ch23-dogal-dil/ornekler/bow_siniflandirma.py
+python ch24-derin-dil/ornekler/embedding_benzerlik.py
+python ch24-derin-dil/ornekler/dikkat_skoru.py
+python ch25-bilgisayarli-goru/ornekler/konvolusyon_mini.py
+python ch25-bilgisayarli-goru/ornekler/histogram_ozellik.py
 ```
 
 ## Çalışma yöntemi (önerilen döngü)
@@ -134,6 +138,8 @@ aima-egitim/
 ├── ch21-derin-ogrenme/          ← 🟢 hazır (numpy MLP XOR, aktivasyon)
 ├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (Q-öğrenme, bandit)
 ├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
+├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
+├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
 └── …
 ```
 
@@ -151,6 +157,8 @@ aima-egitim/
 - **Bölüm 21 (Derin öğrenme):** 🟢 hazır — aktivasyon karşılaştırma, numpy MLP XOR, alıştırmalar, quiz
 - **Bölüm 22 (Pekiştirmeli öğrenme):** 🟢 hazır — Q-öğrenme gridworld, ε-açgözlü bandit, alıştırmalar, quiz
 - **Bölüm 23 (Doğal dil):** 🟢 hazır — bigram LM, BoW naif Bayes, alıştırmalar, quiz
-- **Bölüm 24–28:** müfredatta planlı
+- **Bölüm 24 (Derin dil):** 🟢 hazır — gömü kosinüs, dikkat softmax, alıştırmalar, quiz
+- **Bölüm 25 (Bilgisayarlı görü):** 🟢 hazır — 2D konvolüsyon, histogram özellik, alıştırmalar, quiz
+- **Bölüm 26–28:** müfredatta planlı
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
