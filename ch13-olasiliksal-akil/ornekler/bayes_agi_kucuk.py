@@ -105,7 +105,9 @@ def main() -> None:
         ("Mudür aradı — yangın olasılığı?", "Yangin", {"MudurArar": True}),
         ("Alarm çaldı — yangın?", "Yangin", {"Alarm": True}),
         ("Alarm + müdür aradı — yangın?", "Yangin", {"Alarm": True, "MudurArar": True}),
+        ("Alarm çaldı — sigara?", "SigaraDumanı", {"Alarm": True}),
         ("Alarm çaldı, yangın yok — sigara?", "SigaraDumanı", {"Alarm": True, "Yangin": False}),
+        ("Alarm çaldı, yangın var — sigara?", "SigaraDumanı", {"Alarm": True, "Yangin": True}),
         ("Hiçbir şey yokken müdür arar mı?", "MudurArar", {}),
     ]
 
@@ -118,7 +120,9 @@ def main() -> None:
         print(f"  P({query}=F | e) = {dist[False]:.4f}")
         print()
 
-    print("Not: explaining away — Alarm=T ve Yangin=F iken SigaraDumanı yükselir.")
+    print("Nedenler arası akıl yürütme: Alarm çaldığında yangın ve sigara birbiriyle yarışan iki açıklamadır.")
+    print("Yangının OLDUĞUNU öğrenmek sigara olasılığını düşürür ('açıklayıp götürme', explaining away);")
+    print("yangının OLMADIĞINI öğrenmek ise sigarayı neredeyse tek açıklama yapar.")
 
 
 if __name__ == "__main__":
