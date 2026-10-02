@@ -82,8 +82,8 @@ python ch18-cok-ajanli-karar/ornekler/oyun_kurami.py
 python ch18-cok-ajanli-karar/ornekler/mekanizma_tasarimi.py
 python ch19-ogrenme-orneklerden/ornekler/karar_agaci.py
 python ch19-ogrenme-orneklerden/ornekler/topluluk.py
-python ch20-bilgi-ogrenme/ornekler/mle_beta_Bernoulli.py
-python ch20-bilgi-ogrenme/ornekler/em_karisim_mini.py
+python ch20-olasiliksal-ogrenme/ornekler/istatistiksel_ogrenme.py
+python ch20-olasiliksal-ogrenme/ornekler/em_algoritmasi.py
 python ch21-derin-ogrenme/ornekler/aktivasyon_goster.py
 python ch21-derin-ogrenme/ornekler/mlp_numpy_mini.py
 python ch22-pekistirmeli-ogrenme/ornekler/q_ogrenme_grid.py
@@ -141,7 +141,7 @@ aima-egitim/
 ├── ch17-karmasik-kararlar/      ← 🟢 hazır (MDP, değer yineleme)
 ├── ch18-cok-ajanli-karar/       ← 🟢 hazır (oyun teorisi, Nash)
 ├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
-├── ch20-bilgi-ogrenme/          ← 🟢 hazır (MLE/MAP, EM mini)
+├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
 ├── ch21-derin-ogrenme/          ← 🟢 hazır (numpy MLP XOR, aktivasyon)
 ├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (Q-öğrenme, bandit)
 ├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
