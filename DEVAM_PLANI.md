@@ -27,7 +27,7 @@ Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift say
 2. **PDF'teki baskı hatası (Bölüm 13):** Elimizdeki PDF'te Şekil 13.2'deki Alarm tablosu yanlış basılmış (.70/.01 tekrarı). Standart değerler (.95/.94/.29/.001) kullanıldı; `ch13-olasiliksal-akil/notlar.md` §1'de açıklandı.
 3. **Bölüm 20 klasör adı — DÜZELTİLDİ (2026-10-02):** `ch20-bilgi-ogrenme` → `ch20-olasiliksal-ogrenme`; README ve MUFREDAT güncellendi.
 4. **Kök dosyalar:** `README.md` ve `MUFREDAT.md` eski; bitince güncellenmeli. Bütün bölümlerin "Terimler" tablolarından bir `SOZLUK.md` üretilecek. `BITIRME`/`CONTRIBUTING` dosyaları gözden geçirilecek.
-5. **Pull request:** Hepsi bitince `egitim-iyilestirme` → `main` için PR açılacak (kullanıcıya sorulmadan açılmayacak).
+5. **Pull request:** Bölüm 1–22, PR #1 ile 2026-10-02'de `main`'e birleştirildi (merge commit). Bölüm 23–28 yine `egitim-iyilestirme` dalında sürecek ve yeni bir PR'la gelecek (kullanıcıya sorulmadan PR açılmaz, birleştirmeyi kullanıcı yapar).
 
 ---
 
