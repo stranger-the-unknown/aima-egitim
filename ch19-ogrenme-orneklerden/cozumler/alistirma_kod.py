@@ -26,7 +26,7 @@ def a3() -> dict:
     nitelikler = [a for a in ka.SIRA if a != "Pat"]
     agac = ka.agac_ogren(ka.RESTORAN, nitelikler)
     return {"kök": agac[0], "düğüm": ka.dugum_sayisi(agac), "ağaç": agac,
-            "Patrons'lı düğüm": ka.dugum_sayisi(ka.agac_ogren(ka.RESTORAN, ka.SIRA))}
+            "patronsla düğüm": ka.dugum_sayisi(ka.agac_ogren(ka.RESTORAN, ka.SIRA))}
 
 
 # --- A4: χ² anlamlılığı (genel serbestlik derecesi) -----------------------------------------
@@ -144,7 +144,7 @@ def a10(M_yildiz: float = 250, K: int = 10) -> dict:
 def main() -> None:
     print("=== A3: Patrons olmadan öğrenilen ağaç ===")
     s = a3()
-    print(f"  kök {s['kök']}, {s['düğüm']} düğüm (Patrons'la {s["Patrons'lı düğüm"]})")
+    print(f"  kök {s['kök']}, {s['düğüm']} düğüm (Patrons'la {s['patronsla düğüm']})")
     print(ka.agac_yaz(s["ağaç"], "    "))
 
     print("\n=== A4: kökte χ² anlamlılığı ===")
