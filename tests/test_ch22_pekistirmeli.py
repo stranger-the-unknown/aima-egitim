@@ -42,3 +42,17 @@ def test_aktif_ogrenme():
     glie = ao.egit(ao.QAjani(kesif="glie"), 500, tohum=0, kontrol=(500,))
     assert glie[500] < 0.05
     assert ao.politika_kaybi(ao.DUNYA.acgozlu(ao.GERCEK_U)) == pytest.approx(0, abs=1e-9)
+
+
+def test_islev_yaklasimi_ve_politika_aramasi():
+    yp = yukle("ch22-pekistirmeli-ogrenme/ornekler/yaklasik_ve_politika.py")
+    import numpy as np
+    theta = np.array([0.5, 0.2, 0.1])
+    assert yp.U_hat(theta, (1, 1)) == pytest.approx(0.8)                       # kitap
+    yeni = yp.delta_kurali(theta, (1, 1), 0.4, alfa=0.1)
+    assert yeni == pytest.approx(theta - 0.04)                                 # hepsi 0.4α azalır
+    k22 = yukle("ch22-pekistirmeli-ogrenme/cozumler/alistirma_kod.py")
+    a8 = k22.a8()
+    assert a8["(1, x, y, hedefe uzaklık)"] == pytest.approx(a8["(1, x, y)"])   # uzaklık doğrusal birleşim
+    assert a8["(1, x, y, uzaklık, −1'e komşu mu)"] < a8["(1, x, y)"]
+    assert yp.reinforce(bolum=1500, kontrol=(1500,))[1500] < 0.05

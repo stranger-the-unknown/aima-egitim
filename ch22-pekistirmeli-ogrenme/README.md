@@ -1,42 +1,46 @@
 # Bölüm 22 — Pekiştirmeli öğrenme
 
-AIMA 4. baskı (US) *Reinforcement Learning* temalarıyla uyumlu **özgün Türkçe** öğrenme paketi.
-Ajan–ortam döngüsü, ödül / getiri, TD ve Q-öğrenme sezgisi, keşif–sömürü dengesi.
-Saf numpy ile küçük gridworld Q-öğrenme ve epsilon-açgözlü bandit; kitap metni yok.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 22 · *Reinforcement Learning*
 
 ## Öğrenme hedefleri
 
-1. Ajan–ortam etkileşim döngüsünü (durum, eylem, ödül, sonraki durum) açıklamak.
-2. Anlık ödül ile indirimli getiri (return) farkını bilmek.
-3. TD / Q-öğrenme güncellemesinin sezgisini özetlemek (model bilmeden öğrenme).
-4. Keşif (exploration) ile sömürü (exploitation) gerilimini örneklemek.
-5. Küçük bir gridworld’de Q tablosu ve açgözlü politika üretmek; banditte ε-açgözlü denemek.
+1. Pekiştirmeli öğrenmeyi denetimli öğrenmeden ayırt etmek; model tabanlı ve modelsiz yaklaşımları karşılaştırmak.
+2. Sabit bir politikanın faydalarını doğrudan kestirim, ADP ve TD ile öğrenmek.
+3. Keşif–sömürü dengesini, keşif fonksiyonlarını ve GLIE'yi açıklamak.
+4. Q-öğrenme ve SARSA'yı uygulamak ve karşılaştırmak.
+5. İşlev yaklaşımını ve politika aramasını tanımak.
+6. Taklit öğrenme ve ters pekiştirmeli öğrenmeyi açıklamak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ornekler/q_ogrenme_grid.py` | 3×2 gridworld Q-öğrenme; Q ve politika yazdırır |
-| `ornekler/epsilon_greedy_bandit.py` | Çok kollu bandit ε-açgözlü demo |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | A1 ve A2 çözümleri |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 22'yi oku (önce Bölüm 17'yi bitirmiş ol).
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır.
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA’da pekiştirmeli öğrenme bölümünü oku (yasal nüsha). Bölüm 17 MDP notlarını hatırla.
-2. `notlar.md` ile pekiştir.
-3. Örnekleri çalıştır:
-   ```bash
-   python ornekler/q_ogrenme_grid.py
-   python ornekler/epsilon_greedy_bandit.py
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/pasif_ogrenme.py` | Kitabın üç denemesi; doğrudan fayda kestirimi, ADP, TD; benzetimle karşılaştırma |
+| `ornekler/aktif_ogrenme.py` | Açgözlü ve keşifçi ADP (R⁺ = 2, Nₑ = 5), Q-öğrenme (keşif fonksiyonu ve GLIE), SARSA |
+| `ornekler/yaklasik_ve_politika.py` | Doğrusal işlev yaklaşımı, delta kuralı, TD + yaklaşım, REINFORCE |
+| `alistirmalar.md` | 10 alıştırma |
+| `cozumler/` | Tüm çözümler (A2, A3, A6, A8, A9 kod) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+Örnekler Bölüm 17'nin `ch17-karmasik-kararlar/ornekler/mdp.py` kütüphanesini kullanır.
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+## Kitapla doğrulama
+
+`tests/test_ch22_pekistirmeli.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| 1. denemede ödül-kalan | (1,1) 0.76; (1,2) 0.80, 0.88; (1,3) 0.84, 0.92 | ✔ |
+| ADP: (3,3)'te Sağ | 4 kez; P̂ = 1/2 | ✔ |
+| TD örneği | U(1,3): 0.84 → hedef 0.92 | ✔ |
+| Pasif yöntemler | Şekil 17.3 faydalarına yakınsar | ✔ |
+| Keşifçi ADP | sıfıra yakın politika kaybı | ✔ |
+| Doğrusal yaklaşım | θ = (0.5, 0.2, 0.1) → Û(1,1) = 0.8; u = 0.4 iken θ'lar 0.4α azalır | ✔ |

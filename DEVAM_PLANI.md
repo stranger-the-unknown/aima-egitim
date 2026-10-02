@@ -12,13 +12,12 @@ Son güncelleme: 2026-10-02
 
 | Bölüm | Durum |
 |---|---|
-| 1–21 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 22 | **Yarım.** `pasif_ogrenme.py`, `aktif_ogrenme.py` ve `tests/test_ch22_pekistirmeli.py` yazıldı (kitap değerleri doğrulandı). Kalanlar: işlev yaklaşımı ve politika araması örneği, notlar, alıştırmalar, çözümler, quiz, README; eski `epsilon_greedy_bandit.py` ve `q_ogrenme_grid.py` kaldırılacak. |
+| 1–22 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
 | 23–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-Bölüm 16–21 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
+Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
 
 ---
 
@@ -49,7 +48,6 @@ Bölüm 16–21 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift say
 
 ## 4. Sonraki bölümler için not edilmiş kitap değerleri (yeniden doğrula)
 
-- **22:** 4×3 dünyada pasif TD öğrenmesi. 4×3 dünya için `ch17-karmasik-kararlar/ornekler/mdp.py` hazır (4. baskı ödül tanımı); yeniden kullanılabilir.
 - **23:** CYK ayrıştırma.
 - **26:** Monte Carlo konumlandırma.
 

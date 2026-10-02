@@ -86,8 +86,8 @@ python ch20-olasiliksal-ogrenme/ornekler/istatistiksel_ogrenme.py
 python ch20-olasiliksal-ogrenme/ornekler/em_algoritmasi.py
 python ch21-derin-ogrenme/ornekler/hesap_grafigi.py
 python ch21-derin-ogrenme/ornekler/mlp_egitim.py
-python ch22-pekistirmeli-ogrenme/ornekler/q_ogrenme_grid.py
-python ch22-pekistirmeli-ogrenme/ornekler/epsilon_greedy_bandit.py
+python ch22-pekistirmeli-ogrenme/ornekler/pasif_ogrenme.py
+python ch22-pekistirmeli-ogrenme/ornekler/aktif_ogrenme.py
 python ch23-dogal-dil/ornekler/n_gram_mini.py
 python ch23-dogal-dil/ornekler/bow_siniflandirma.py
 python ch24-derin-dil/ornekler/embedding_benzerlik.py
@@ -143,7 +143,7 @@ aima-egitim/
 ├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
 ├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
 ├── ch21-derin-ogrenme/          ← 🟢 hazır (geri yayılım, CNN, RNN, otokodlayıcı)
-├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (Q-öğrenme, bandit)
+├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (ADP, TD, Q-öğrenme, SARSA, politika araması)
 ├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
 ├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
 ├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
