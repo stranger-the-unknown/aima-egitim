@@ -78,8 +78,8 @@ python ch16-basit-kararlar/ornekler/fayda_kurami.py
 python ch16-basit-kararlar/ornekler/bilgi_degeri.py
 python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
 python ch17-karmasik-kararlar/ornekler/dort_uc_dunya.py
-python ch18-cok-ajanli-karar/ornekler/mahkum_ikilemi.py
-python ch18-cok-ajanli-karar/ornekler/nash_2x2.py
+python ch18-cok-ajanli-karar/ornekler/oyun_kurami.py
+python ch18-cok-ajanli-karar/ornekler/mekanizma_tasarimi.py
 python ch19-ogrenme-orneklerden/ornekler/karar_agaci_mini.py
 python ch19-ogrenme-orneklerden/ornekler/lineer_siniflandirma.py
 python ch20-bilgi-ogrenme/ornekler/mle_beta_Bernoulli.py
