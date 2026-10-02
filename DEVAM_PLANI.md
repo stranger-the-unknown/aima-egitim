@@ -12,12 +12,12 @@ Son güncelleme: 2026-10-02
 
 | Bölüm | Durum |
 |---|---|
-| 1–18 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 19–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
+| 1–19 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
+| 20–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-Bölüm 16, 17 ve 18 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
+Bölüm 16–19 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
 
 ---
 
@@ -48,7 +48,6 @@ Bölüm 16, 17 ve 18 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çif
 
 ## 4. Sonraki bölümler için not edilmiş kitap değerleri (yeniden doğrula)
 
-- **19:** Restoran örneği: Kazanç(Patrons) ≈ 0.541 bit, Kazanç(Type) = 0.
 - **20:** Şeker torbaları: bir limonlu şekerden sonra P(sonraki limon) = 0.65.
 - **22:** 4×3 dünyada pasif TD öğrenmesi. 4×3 dünya için `ch17-karmasik-kararlar/ornekler/mdp.py` hazır (4. baskı ödül tanımı); yeniden kullanılabilir.
 - **23:** CYK ayrıştırma.

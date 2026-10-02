@@ -80,8 +80,8 @@ python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
 python ch17-karmasik-kararlar/ornekler/dort_uc_dunya.py
 python ch18-cok-ajanli-karar/ornekler/oyun_kurami.py
 python ch18-cok-ajanli-karar/ornekler/mekanizma_tasarimi.py
-python ch19-ogrenme-orneklerden/ornekler/karar_agaci_mini.py
-python ch19-ogrenme-orneklerden/ornekler/lineer_siniflandirma.py
+python ch19-ogrenme-orneklerden/ornekler/karar_agaci.py
+python ch19-ogrenme-orneklerden/ornekler/topluluk.py
 python ch20-bilgi-ogrenme/ornekler/mle_beta_Bernoulli.py
 python ch20-bilgi-ogrenme/ornekler/em_karisim_mini.py
 python ch21-derin-ogrenme/ornekler/aktivasyon_goster.py
