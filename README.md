@@ -84,8 +84,8 @@ python ch19-ogrenme-orneklerden/ornekler/karar_agaci.py
 python ch19-ogrenme-orneklerden/ornekler/topluluk.py
 python ch20-olasiliksal-ogrenme/ornekler/istatistiksel_ogrenme.py
 python ch20-olasiliksal-ogrenme/ornekler/em_algoritmasi.py
-python ch21-derin-ogrenme/ornekler/aktivasyon_goster.py
-python ch21-derin-ogrenme/ornekler/mlp_numpy_mini.py
+python ch21-derin-ogrenme/ornekler/hesap_grafigi.py
+python ch21-derin-ogrenme/ornekler/mlp_egitim.py
 python ch22-pekistirmeli-ogrenme/ornekler/q_ogrenme_grid.py
 python ch22-pekistirmeli-ogrenme/ornekler/epsilon_greedy_bandit.py
 python ch23-dogal-dil/ornekler/n_gram_mini.py
@@ -142,7 +142,7 @@ aima-egitim/
 ├── ch18-cok-ajanli-karar/       ← 🟢 hazır (oyun teorisi, Nash)
 ├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
 ├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
-├── ch21-derin-ogrenme/          ← 🟢 hazır (numpy MLP XOR, aktivasyon)
+├── ch21-derin-ogrenme/          ← 🟢 hazır (geri yayılım, CNN, RNN, otokodlayıcı)
 ├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (Q-öğrenme, bandit)
 ├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
 ├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
