@@ -74,8 +74,8 @@ python ch14-zamansal-olasilik/ornekler/hmm_filtreleme.py
 python ch14-zamansal-olasilik/ornekler/viterbi_kucuk.py
 python ch15-olasiliksal-programlama/ornekler/basit_uretimsel_model.py
 python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
-python ch16-basit-kararlar/ornekler/beklenen_fayda.py
-python ch16-basit-kararlar/ornekler/voi_mini.py
+python ch16-basit-kararlar/ornekler/fayda_kurami.py
+python ch16-basit-kararlar/ornekler/bilgi_degeri.py
 python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
 python ch17-karmasik-kararlar/ornekler/politika_degerlendirme.py
 python ch18-cok-ajanli-karar/ornekler/mahkum_ikilemi.py

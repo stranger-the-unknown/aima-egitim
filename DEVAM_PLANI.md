@@ -4,7 +4,7 @@
 > Çalışmaya yeni bir oturumda (ya da başka bir bilgisayarda) devam ederken **önce bunu oku**.
 > Çalışma bitip `main`'e birleştirilmeden önce bu dosya silinebilir.
 
-Son güncelleme: 2026-09-28
+Son güncelleme: 2026-10-02
 
 ---
 
@@ -12,35 +12,12 @@ Son güncelleme: 2026-09-28
 
 | Bölüm | Durum |
 |---|---|
-| 1–15 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 16 | **Yarım.** Yalnızca yeni örnek kodlar yazıldı (aşağıya bak). Notlar, alıştırmalar, çözümler, quiz, README ve test dosyası henüz eski (Grok'un ilk sürümü). |
+| 1–16 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
 | 17–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-### Bölüm 16'da yapılanlar (commit edildi)
-
-`ch16-basit-kararlar/ornekler/` içinde yeni, çalışan ve kitapla karşılaştırılmış betikler:
-
-| Dosya | İçerik | Kitap değeri |
-|---|---|---|
-| `fayda_kurami.py` | Yarışma kumarı, Bay Beard'ın fayda fonksiyonu, kesinlik eşdeğeri, Allais ve Ellsberg, para pompası | EU(kabul) = 7 < 8; EMV 1 250 000 $; U = −263.31 + 22.09 log(n + 150 000) |
-| `iyimserlik_laneti.py` | İyileştiricinin laneti | k = 3 → ~0.85σ, k = 30 → ~2σ |
-| `karar_agi.py` | Stokastik baskınlık, havalimanı karar ağı (sayılar bizim varsayımımız), Q-fonksiyonu biçimi | S1 ~ U[2.8, 4.8], S2 ~ U[3.0, 5.2] milyar $ → S1 baskın |
-| `bilgi_degeri.py` | Genel VPI, petrol örneği, VPI özellikleri, miyop bilgi toplayan ajan | Petrol: VPI = C/n (tam kesirle) |
-| `bilinmeyen_tercihler.py` | Durian dondurması, kapatma düğmesi oyunu | EU(durian) = +8 > +1; U[−40, 60] → yap +10, bekle +18 |
-
-### Bölüm 16'da kalanlar
-
-1. `notlar.md`'yi yeniden yaz (16.1–16.7 eşlemesi, tablolar, sık hatalar, Terimler). Kitaptan doğrulanmış ek bilgiler:
-   - Aksiyomlar: sıralanabilirlik, geçişlilik, süreklilik, ikame edilebilirlik, tekdüzelik, ayrıştırılabilirlik.
-   - İnsanların çoğu yarı yarıya 1000 $ / 0 $ piyango yerine ~400 $ kabul eder (kesinlik eşdeğeri 400, EMV 500).
-   - Çerçeveleme etkisi ("%90 yaşam" vs "%10 ölüm"), çıpalama etkisi (200 $'lık şarap, 55 $'lık şarabı ucuz gösterir).
-   - İlaç örneği: binlerce aday arasından seçilmiş 10'da 9'luk ilaç, 1000'de 800'lük ilaçtan muhtemelen kötüdür.
-   - VPI özellikleri: negatif değil, toplamsal değil, sıradan bağımsız.
-2. `alistirmalar.md` (10 alıştırma), `cozumler/` (hepsi, kodlu olanlar `alistirma_kod.py`), `quiz.md` (12 soru), `README.md`.
-3. `tests/test_ch16_kararlar.py`: yukarıdaki kitap değerlerini doğrula.
-4. Eski `beklenen_fayda.py` ve `voi_mini.py` özgün ama basit örnekler; ya tut ve yeni alıştırmalarda kullan ya da kaldır. (Eski `cozumler/alistirma2_tedavi.md`'deki sayılar "çıktınıza bakın" gibi belirsiz; yeniden yazılmalı.)
+Bölüm 16 2026-10-02'de bitti (eski `beklenen_fayda.py` ve `voi_mini.py` kaldırıldı; yerlerini yeni örnekler aldı).
 
 ---
 
