@@ -13,7 +13,8 @@ Son güncelleme: 2026-10-02
 | Bölüm | Durum |
 |---|---|
 | 1–21 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 22–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
+| 22 | **Yarım.** `pasif_ogrenme.py`, `aktif_ogrenme.py` ve `tests/test_ch22_pekistirmeli.py` yazıldı (kitap değerleri doğrulandı). Kalanlar: işlev yaklaşımı ve politika araması örneği, notlar, alıştırmalar, çözümler, quiz, README; eski `epsilon_greedy_bandit.py` ve `q_ogrenme_grid.py` kaldırılacak. |
+| 23–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
