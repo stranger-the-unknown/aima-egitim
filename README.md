@@ -74,20 +74,20 @@ python ch14-zamansal-olasilik/ornekler/hmm_filtreleme.py
 python ch14-zamansal-olasilik/ornekler/viterbi_kucuk.py
 python ch15-olasiliksal-programlama/ornekler/basit_uretimsel_model.py
 python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
-python ch16-basit-kararlar/ornekler/beklenen_fayda.py
-python ch16-basit-kararlar/ornekler/voi_mini.py
+python ch16-basit-kararlar/ornekler/fayda_kurami.py
+python ch16-basit-kararlar/ornekler/bilgi_degeri.py
 python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
-python ch17-karmasik-kararlar/ornekler/politika_degerlendirme.py
-python ch18-cok-ajanli-karar/ornekler/mahkum_ikilemi.py
-python ch18-cok-ajanli-karar/ornekler/nash_2x2.py
-python ch19-ogrenme-orneklerden/ornekler/karar_agaci_mini.py
-python ch19-ogrenme-orneklerden/ornekler/lineer_siniflandirma.py
-python ch20-bilgi-ogrenme/ornekler/mle_beta_Bernoulli.py
-python ch20-bilgi-ogrenme/ornekler/em_karisim_mini.py
-python ch21-derin-ogrenme/ornekler/aktivasyon_goster.py
-python ch21-derin-ogrenme/ornekler/mlp_numpy_mini.py
-python ch22-pekistirmeli-ogrenme/ornekler/q_ogrenme_grid.py
-python ch22-pekistirmeli-ogrenme/ornekler/epsilon_greedy_bandit.py
+python ch17-karmasik-kararlar/ornekler/dort_uc_dunya.py
+python ch18-cok-ajanli-karar/ornekler/oyun_kurami.py
+python ch18-cok-ajanli-karar/ornekler/mekanizma_tasarimi.py
+python ch19-ogrenme-orneklerden/ornekler/karar_agaci.py
+python ch19-ogrenme-orneklerden/ornekler/topluluk.py
+python ch20-olasiliksal-ogrenme/ornekler/istatistiksel_ogrenme.py
+python ch20-olasiliksal-ogrenme/ornekler/em_algoritmasi.py
+python ch21-derin-ogrenme/ornekler/hesap_grafigi.py
+python ch21-derin-ogrenme/ornekler/mlp_egitim.py
+python ch22-pekistirmeli-ogrenme/ornekler/pasif_ogrenme.py
+python ch22-pekistirmeli-ogrenme/ornekler/aktif_ogrenme.py
 python ch23-dogal-dil/ornekler/n_gram_mini.py
 python ch23-dogal-dil/ornekler/bow_siniflandirma.py
 python ch24-derin-dil/ornekler/embedding_benzerlik.py
@@ -141,9 +141,9 @@ aima-egitim/
 ├── ch17-karmasik-kararlar/      ← 🟢 hazır (MDP, değer yineleme)
 ├── ch18-cok-ajanli-karar/       ← 🟢 hazır (oyun teorisi, Nash)
 ├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
-├── ch20-bilgi-ogrenme/          ← 🟢 hazır (MLE/MAP, EM mini)
-├── ch21-derin-ogrenme/          ← 🟢 hazır (numpy MLP XOR, aktivasyon)
-├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (Q-öğrenme, bandit)
+├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
+├── ch21-derin-ogrenme/          ← 🟢 hazır (geri yayılım, CNN, RNN, otokodlayıcı)
+├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (ADP, TD, Q-öğrenme, SARSA, politika araması)
 ├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
 ├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
 ├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)

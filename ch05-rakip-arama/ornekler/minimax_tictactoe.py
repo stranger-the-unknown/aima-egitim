@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
-"""XOX (tic-tac-toe) — minimax ve isteğe bağlı alpha-beta. Bölüm 5."""
+"""XOX (tic-tac-toe): minimax ve alfa-beta budama.
+
+Kitaptaki sayılar (testlerle doğrulanır):
+  * oyun ağacında 9! = 362.880'den az yaprak (tam sayı: 255.168)
+  * yalnızca 5.478 farklı durum
+  * ağacın toplam düğüm sayısı 549.946
+  * iki optimal oyuncu → beraberlik (minimax değeri 0)
+
+Çalıştırma:
+    python minimax_tictactoe.py                       # iki optimal ajan, saf minimax
+    python minimax_tictactoe.py --alpha-beta          # aynı oyun, çok daha az düğüm
+    python minimax_tictactoe.py --mod istatistik      # ağaç ve durum sayıları
+    python minimax_tictactoe.py --mod en-iyi --tahta "X.O.X.O.."
+    python minimax_tictactoe.py --mod en-iyi --tahta "X.O.X.O.." --hizli-kazan
+"""
 from __future__ import annotations
 
 import argparse
@@ -24,6 +38,9 @@ CIZGILER = (
 
 # İstatistik (budama / düğüm sayacı)
 _dugum = 0
+
+# True ise kazanç değeri boş kare sayısıyla ölçeklenir: erken kazanmak daha değerli.
+HIZLI_KAZAN = False
 
 
 def sayac_sifirla() -> None:
@@ -57,10 +74,11 @@ def dolu(tahta: Tahta) -> bool:
 def utility(tahta: Tahta) -> Optional[int]:
     """Bittiysa MAX açısından +1 / 0 / -1; değilse None."""
     k = kazanan(tahta)
+    carpan = (1 + tahta.count(Boş)) if HIZLI_KAZAN else 1
     if k == X:
-        return 1
+        return carpan
     if k == O:
-        return -1
+        return -carpan
     if dolu(tahta):
         return 0
     return None
@@ -130,14 +148,14 @@ def en_iyi_hamle(tahta: Tahta, oyuncu: str, kullan_ab: bool) -> Tuple[int, int]:
         return alphabeta(t, max_sira) if kullan_ab else minimax(t, max_sira)
 
     if oyuncu == X:
-        en_h, en_v = adaylar[0], -2
+        en_h, en_v = adaylar[0], -100
         for h in adaylar:
             v = degerle(uygula(tahta, h, X), False)
             if v > en_v:
                 en_v, en_h = v, h
         return en_h, en_v
     # O: MAX utility'sini küçült
-    en_h, en_v = adaylar[0], 2
+    en_h, en_v = adaylar[0], 100
     for h in adaylar:
         v = degerle(uygula(tahta, h, O), True)
         if v < en_v:
@@ -201,11 +219,30 @@ def goster_en_iyi(tahta: Tahta, kullan_ab: bool) -> None:
     yazdir(uygula(tahta, h, oyuncu))
 
 
+def oyun_agaci_istatistigi() -> tuple[int, int, int]:
+    """(ağaçtaki düğüm, yaprak, farklı durum) sayıları."""
+    dugum = yaprak = 0
+    durumlar: set = set()
+
+    def gez(t: Tahta, oyuncu: str) -> None:
+        nonlocal dugum, yaprak
+        dugum += 1
+        durumlar.add(tuple(t))
+        if utility(t) is not None:
+            yaprak += 1
+            return
+        for h in hamleler(t):
+            gez(uygula(t, h, oyuncu), O if oyuncu == X else X)
+
+    gez([Boş] * 9, X)
+    return dugum, yaprak, len(durumlar)
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description="XOX minimax / alpha-beta")
     p.add_argument(
         "--mod",
-        choices=("ajan-ajan", "en-iyi"),
+        choices=("ajan-ajan", "en-iyi", "istatistik"),
         default="ajan-ajan",
         help="ajan-ajan: iki optimal ajan; en-iyi: verilen tahtada hamle",
     )
@@ -219,7 +256,16 @@ def main() -> None:
         action="store_true",
         help="Alpha-beta budama kullan",
     )
+    p.add_argument("--hizli-kazan", action="store_true",
+                   help="kazançları boş kare sayısıyla ölçekle (erken kazanmayı tercih et)")
     args = p.parse_args()
+    global HIZLI_KAZAN
+    HIZLI_KAZAN = args.hizli_kazan
+    if args.mod == "istatistik":
+        d, y, f = oyun_agaci_istatistigi()
+        print(f"Oyun ağacı: {d:,} düğüm, {y:,} yaprak (9! = 362.880'den az), {f:,} farklı durum")
+        print("Aynı durum ağaçta birçok kez görünür: ağaç ≈ 100 kat daha büyük.")
+        return
     ab = args.alpha_beta
     etiket = "alpha-beta" if ab else "saf minimax"
     print(f"(Arama: {etiket})\n")

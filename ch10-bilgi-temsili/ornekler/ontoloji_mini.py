@@ -88,7 +88,7 @@ def demo() -> None:
     o.kategori("Memeli", "Hayvan", "sıcakkanlı", "süt_emer")
     o.kategori("Kedi", "Memeli", "miyavlar")
     o.kategori("Kopek", "Memeli", "havlar")
-    o.kategori("Kus", "Hayvan", "tumuh_var")
+    o.kategori("Kus", "Hayvan", "tüylü")
     o.kategori("Penguen", "Kus", "yüzer")
 
     o.ornek_ekle("minnos", "Kedi")

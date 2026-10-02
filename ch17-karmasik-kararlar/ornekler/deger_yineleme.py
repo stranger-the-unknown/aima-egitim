@@ -1,117 +1,72 @@
 #!/usr/bin/env python3
-"""Küçük gridworld değer yineleme — özgün eğitim.
+"""Değer yinelemesi ve yakınsaması (kitaptaki 17.2.1).
 
-Harita 3x2:
-  (0,1) (1,1) (2,1)=+1
-  (0,0) (1,0) (2,0)=-1
-Kayma %%80 istenen, %%10 sol, %%10 sağ. numpy + Türkçe çıktı.
+* Bellman güncellemesi U_{i+1} = B U_i bir büzülmedir: ‖B U − B U′‖ ≤ γ ‖U − U′‖  (17.11).
+* ε hatası için yeterli yineleme sayısı: N = ⌈log(2 R_max / (ε (1 − γ))) / log(1/γ)⌉.
+* Durma koşulu: ‖U_{i+1} − U_i‖ < ε (1 − γ)/γ  ise  ‖U_{i+1} − U‖ < ε   (17.12).
+* Politika kaybı: ‖U_i − U‖ < ε ise ‖U^{π_i} − U‖ < 2ε   (17.13).
+Kitaptaki gözlem (4 × 3 dünya, γ = 0.9): Politika, faydalardaki en büyük hata hâlâ ~0.51 iken en iyi olur.
+(Eski sürümdeki hata — uç durum ödülünün iki kez sayılması — bu sürümde yok: Uç durumların faydası 0'dır,
+ödül yalnızca uç duruma giriş geçişinde verilir.)
 
-https://aima.cs.berkeley.edu/ · https://github.com/aimacode
+Çalıştırma:
+    python deger_yineleme.py
 """
 from __future__ import annotations
 
-from typing import Dict, List, Tuple
+import math
+import random
 
-import numpy as np
-
-State = Tuple[int, int]
-Action = str
-
-W, H = 3, 2
-ACTIONS = ["K", "D", "B", "G"]
-DELTA = {"K": (0, 1), "D": (1, 0), "B": (-1, 0), "G": (0, -1)}
-LEFT = {"K": "B", "D": "K", "B": "G", "G": "D"}
-RIGHT = {"K": "D", "D": "G", "B": "K", "G": "B"}
-TERM: Dict[State, float] = {(2, 1): 1.0, (2, 0): -1.0}
-STEP = -0.04
-GAMMA = 0.9
-THETA = 1e-4
+import mdp
 
 
-def states() -> List[State]:
-    return [(x, y) for y in range(H) for x in range(W)]
+def yineleme_siniri(gama: float, eps: float, rmax: float = 1.0) -> int:
+    return math.ceil(math.log(2 * rmax / (eps * (1 - gama))) / math.log(1 / gama))
 
 
-def clip(x: int, y: int) -> State:
-    return max(0, min(W - 1, x)), max(0, min(H - 1, y))
+def hata_ve_politika_kaybi(m: mdp.MDP, adim: int) -> list[tuple[int, float, float]]:
+    """Her yinelemede (i, ‖U_i − U‖, ‖U^{π_i} − U‖)."""
+    U_gercek, _ = mdp.deger_yineleme(m, eps=1e-12)
+    U, satirlar = {s: 0.0 for s in m.durumlar}, []
+    for i in range(1, adim + 1):
+        U = m.bellman(U)
+        pi = m.acgozlu(U)
+        satirlar.append((i, mdp.en_cok_hata(U, U_gercek), mdp.en_cok_hata(mdp.politika_degerlendir(m, pi), U_gercek)))
+    return satirlar
 
 
-def move(s: State, a: Action) -> State:
-    dx, dy = DELTA[a]
-    return clip(s[0] + dx, s[1] + dy)
-
-
-def transitions(s: State, a: Action) -> List[Tuple[float, State]]:
-    if s in TERM:
-        return [(1.0, s)]
-    raw = [(0.8, move(s, a)), (0.1, move(s, LEFT[a])), (0.1, move(s, RIGHT[a]))]
-    tot: Dict[State, float] = {}
-    for p, sp in raw:
-        tot[sp] = tot.get(sp, 0.0) + p
-    return [(p, sp) for sp, p in tot.items()]
-
-
-def reward(s: State, a: Action, sp: State) -> float:
-    if s in TERM:
-        return 0.0
-    if sp in TERM and sp != s:
-        return TERM[sp]
-    return STEP
-
-
-def value_iteration(max_iter: int = 100) -> Dict[State, float]:
-    V = {s: 0.0 for s in states()}
-    for s in TERM:
-        V[s] = TERM[s]
-    for it in range(1, max_iter + 1):
-        delta = 0.0
-        Vn = dict(V)
-        for s in states():
-            if s in TERM:
-                continue
-            qs = [
-                sum(p * (reward(s, a, sp) + GAMMA * V[sp]) for p, sp in transitions(s, a))
-                for a in ACTIONS
-            ]
-            Vn[s] = max(qs)
-            delta = max(delta, abs(Vn[s] - V[s]))
-        V = Vn
-        if delta < THETA:
-            print(f"Yakınsama: {it}. yinelemede Δ={delta:.2e}")
-            break
-    return V
-
-
-def greedy(V: Dict[State, float]) -> Dict[State, Action]:
-    pi: Dict[State, Action] = {}
-    for s in states():
-        if s in TERM:
-            pi[s] = "·"
-            continue
-        best_a, best_q = ACTIONS[0], -1e9
-        for a in ACTIONS:
-            q = sum(p * (reward(s, a, sp) + GAMMA * V[sp]) for p, sp in transitions(s, a))
-            if q > best_q:
-                best_a, best_q = a, q
-        pi[s] = best_a
-    return pi
-
-
-def show(V: Dict[State, float], pi: Dict[State, Action]) -> None:
-    print("Utilities V(s):")
-    for y in reversed(range(H)):
-        print("  " + " ".join(f"{V[(x, y)]:+6.3f}" for x in range(W)))
-    print("Açgözlü politika π(s):")
-    for y in reversed(range(H)):
-        print("  " + " ".join(f"  {pi[(x, y)]}  " for x in range(W)))
+def buzulme_orani(m: mdp.MDP, deneme: int = 200, tohum: int = 0) -> float:
+    """Rastgele fayda vektörleri için en büyük ‖BU − BU′‖ / ‖U − U′‖ oranı (≤ γ olmalı)."""
+    rng = random.Random(tohum)
+    en = 0.0
+    for _ in range(deneme):
+        U = {s: (0.0 if s in m.uclar else rng.uniform(-3, 3)) for s in m.durumlar}
+        V = {s: (0.0 if s in m.uclar else rng.uniform(-3, 3)) for s in m.durumlar}
+        en = max(en, mdp.en_cok_hata(m.bellman(U), m.bellman(V)) / mdp.en_cok_hata(U, V))
+    return en
 
 
 def main() -> None:
-    print("Değer yineleme — 3×2 gridworld\n")
-    print(f"γ={GAMMA}, adım maliyeti={STEP}, terminaller={TERM}\n")
-    V = value_iteration()
-    show(V, greedy(V))
-    print("\nBitti. Kaynak: aima.cs.berkeley.edu · aimacode")
+    m = mdp.dort_uc(gama=0.9)
+    print("=== 4 × 3 dünya, γ = 0.9: fayda hatası ve politika kaybı (Şekil 17.8) ===")
+    print("   i   ‖U_i − U‖   ‖U^π_i − U‖")
+    for i, hata, kayip in hata_ve_politika_kaybi(m, 12):
+        print(f"  {i:>2}   {hata:8.4f}    {kayip:8.4f}")
+    print("  Politika 3. güncellemede en iyi oluyor; fayda hatası ise 4. güncellemede bile ~0.51.")
+
+    U, i = mdp.deger_yineleme(m, eps=1e-4)
+    print(f"\n  ε = 1e-4 durma koşuluyla {i} yinelemede durdu. Faydalar:")
+    print(mdp.ciz(U))
+
+    print("\n=== Büzülme ===")
+    for g in (0.5, 0.9, 0.99):
+        print(f"  γ = {g}: rastgele vektörlerde en büyük ‖BU − BU′‖/‖U − U′‖ = {buzulme_orani(mdp.dort_uc(gama=g)):.4f}")
+
+    print("\n=== Kaç yineleme gerekir? N = ⌈log(2R_max/(ε(1−γ))) / log(1/γ)⌉, ε = c · R_max ===")
+    print("   γ       c = 0.1   c = 0.01   c = 0.001")
+    for g in (0.5, 0.9, 0.99, 0.999):
+        print(f"  {g:<6}  " + "  ".join(f"{yineleme_siniri(g, c):>8}" for c in (0.1, 0.01, 0.001)))
+    print("  N, ε'a az bağlı (üstel yakınsama) ama γ → 1 iken hızla büyür.")
 
 
 if __name__ == "__main__":

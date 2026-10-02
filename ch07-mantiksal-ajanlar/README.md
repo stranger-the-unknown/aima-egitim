@@ -1,39 +1,51 @@
 # Bölüm 7 — Mantıksal ajanlar
 
-AIMA 4. baskı, Bölüm 7 ile uyumlu **özgün Türkçe** öğrenme paketi.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 7 · *Logical Agents*
 
 ## Öğrenme hedefleri
 
-1. **Bilgi tabanlı ajan** fikrini: bilgi tabanı (KB) + tell/ask döngüsü olarak açıklamak.
-2. **Önermeler mantığında** sözdizim, modeller, gerektirme (entailment) ve çıkarımı ayırt etmek.
-3. Küçük bir KB üzerinde doğruluk tablosu veya çözümleme ile sorgu sormak.
-4. Basit bir ızgara senaryosunda algı → güvenli kare çıkarımı yapmak (özgün mini örnek).
+1. Bilgi tabanlı ajanın TELL/ASK döngüsünü açıklamak.
+2. Gerektirmeyi modellerle tanımlamak ve doğruluk tablosuyla denetlemek.
+3. CNF, çözümleme, ileri ve geri zincirlemeyi uygulamak.
+4. DPLL ve WalkSAT'ı karşılaştırmak; faz geçişini göstermek.
+5. Wumpus dünyasında mantıksal çıkarımla güvenli kareleri bulan bir ajan kurmak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ornekler/onerme_mantigi.py` | Küçük önerme KB: tell / ask (doğruluk tablosu) |
-| `ornekler/wumpus_basit.py` | 2×2 ızgara: esinti/koku → güvenli kareler |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | İlk 2 alıştırmanın çözümleri |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 7'yi oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır.
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA Bölüm 7’yi oku (yasal nüsha).
-2. `notlar.md` ile pekiştir.
-3. Örnekleri çalıştır:
-   ```bash
-   python ornekler/onerme_mantigi.py
-   python ornekler/wumpus_basit.py
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/onerme.py` | Önerme mantığı kütüphanesi: ayrıştırıcı, TT-ENTAILS, CNF, çözümleme, ileri/geri zincirleme, DPLL, WalkSAT |
+| `ornekler/onerme_mantigi.py` | TELL/ASK; geçerlilik, karşılanabilirlik, eşdeğerlik |
+| `ornekler/wumpus_mantik.py` | Kitaptaki R1–R5 (128 model, 3'ünde KB doğru); çözümleme kanıtı; 4×4 dünyada mantıksal ajan |
+| `ornekler/ileri_geri_zincirleme.py` | Kitaptaki Horn KB: P⇒Q, L∧M⇒P, … |
+| `ornekler/sat_faz_gecisi.py` | Rastgele 3-SAT: m/n ≈ 4,3 faz geçişi |
+| `alistirmalar.md` | 10 alıştırma |
+| `cozumler/` | Tüm çözümler (A4, A6–A9 kodla doğrulanır) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+```bash
+python ornekler/wumpus_mantik.py
+python ornekler/ileri_geri_zincirleme.py
+python ornekler/sat_faz_gecisi.py
+```
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+## Kitapla doğrulama
+
+`tests/test_ch07_mantik.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| R1–R5: model sayısı, KB'nin doğru olduğu | 128, 3 | ✔ |
+| KB ⊨ ¬P12; KB ⊭ ¬P22 | evet; hayır | ✔ |
+| Çözümleme ile ¬P12 kanıtı | boş tümce | ✔ |
+| Horn KB'de ileri zincirleme | Q çıkarılır | ✔ |
+| 4×4 dünyada [1,1], [2,1], [1,2] sonrası | W13, P31, [2,2] güvenli | ✔ |
+| Rastgele 3-SAT | m/n ≈ 4,3'te geçiş | ✔ (düşük oranda hep, yüksek oranda hiç karşılanabilir) |

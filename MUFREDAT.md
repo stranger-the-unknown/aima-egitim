@@ -67,7 +67,7 @@ Durum: 🟢 hazır · 🟡 stub / yakında · ⚪ planlı
 | # | Klasör | Konu | Hafta | Durum |
 |---|--------|------|-------|-------|
 | 19 | `ch19-ogrenme-orneklerden/` | Örneklerden öğrenme | 22–23 | 🟢 hazır |
-| 20 | `ch20-bilgi-ogrenme/` | Olasılıksal modellerle öğrenme (US Ch.20) | 24 | 🟢 hazır |
+| 20 | `ch20-olasiliksal-ogrenme/` | Olasılıksal modellerle öğrenme (US Ch.20) | 24 | 🟢 hazır |
 | 21 | `ch21-derin-ogrenme/` | Derin öğrenme | 25 | 🟢 hazır |
 | 22 | `ch22-pekistirmeli-ogrenme/` | Pekiştirmeli öğrenme | 26 | 🟢 hazır |
 

@@ -1,43 +1,45 @@
 # Bölüm 1 — Giriş
 
-AIMA 4. baskı, Bölüm 1 ile uyumlu **özgün Türkçe** öğrenme paketi.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 1 · *Introduction*
 
 ## Öğrenme hedefleri
 
-Bu bölümü bitirdiğinde şunları yapabilmelisin:
+1. Yapay zekâyı dört yaklaşımla (insan gibi / rasyonel × düşünme / davranma) tanımlamak.
+2. Rasyonel ajan yaklaşımını, **standart modeli** ve **değer hizalama** sorununu açıklamak.
+3. AI'nin temellerini (felsefe, matematik, ekonomi…) getirdikleri sorularla eşleştirmek.
+4. AI tarihini dönemler ve kilometre taşlarıyla anlatmak.
+5. Güncel yetenekleri ve riskleri dengeli biçimde tartışmak.
 
-1. **Yapay zekâyı** birkaç farklı bakış açısıyla (düşünme / davranma, insan benzeri / rasyonel) ayırt ederek tanımlamak.
-2. AI’nin **disiplinlerarası temellerini** (felsefe, matematik, ekonomi, sinirbilim, psikoloji, bilgisayar bilimi, dilbilim, kontrol teorisi) kısaca açıklamak.
-3. Kısa bir **tarihçe çerçevesi** kurmak (erken fikirler → sembolik dönem → veri/öğrenme dönemi).
-4. **Akıllı ajan** fikrini, **PEAS** şablonunu ve **ortam özelliklerini** (gözlemlenebilirlik, determinizm, vb.) kullanmak.
-5. Temel **ajan türlerini** (basit refleks, modele dayalı, hedefe dayalı, faydaya dayalı, öğrenen) ayırt etmek.
+## Çalışma sırası
 
-## Bu klasörde ne var?
+1. Kitapta Bölüm 1'i oku.
+2. [`notlar.md`](notlar.md) ile pekiştir; hızlı tekrar için [`ozet.md`](ozet.md).
+3. Örnekleri çalıştır (aşağıda).
+4. [`alistirmalar.md`](alistirmalar.md) → çözümler [`cozumler/`](cozumler/) klasöründe.
+5. [`quiz.md`](quiz.md) ile kendini sına.
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ozet.md` | Tek sayfalık çalışma özeti |
-| `ornekler/` | `vacuum_agent.py`, `peas_ornekleri.py` |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | İlk 2 alıştırmanın çözümleri |
-| `quiz.md` | 5 kısa soru + cevaplar |
+## Dosyalar
 
-## Nasıl çalış?
+| Dosya | İçerik |
+|---|---|
+| `notlar.md` | Kitap bölümleriyle eşlenmiş notlar, zaman çizelgesi, terimler |
+| `ozet.md` | Tek sayfalık tekrar özeti |
+| `ornekler/eliza_mini.py` | ELIZA tarzı sohbet: "taklit etmek anlamak değildir" |
+| `ornekler/peas_ornekleri.py` | Üç sistem için PEAS tabloları |
+| `ornekler/vacuum_agent.py` | İki odalı süpürge dünyası, basit refleks ajanı |
+| `alistirmalar.md` | 8 alıştırma (★ – ★★★) |
+| `cozumler/` | Tüm alıştırmaların çözümleri (A2 ve A4 çalıştırılabilir kod) |
+| `quiz.md` | 10 soru + cevaplar |
 
-1. Kitapta Bölüm 1’i oku (yasal nüsha).
-2. `notlar.md` ile pekiştir; hızlı tekrar için `ozet.md`.
-3. Örnekleri çalıştır:
-   ```bash
-   python ornekler/vacuum_agent.py
-   python ornekler/peas_ornekleri.py
-   ```
-4. Alıştırmaları çöz; takılırsan `cozumler/` ve asistana bak.
-5. `quiz.md` ile kontrol et.
+```bash
+python ornekler/eliza_mini.py
+python ornekler/eliza_mini.py --etkilesim
+python ornekler/peas_ornekleri.py
+python ornekler/vacuum_agent.py
+python cozumler/alistirma4_modelli_supurge.py
+```
 
 ## Kaynaklar
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+- Kitabın sitesi: [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
+- Resmî kod deposu: [github.com/aimacode](https://github.com/aimacode)

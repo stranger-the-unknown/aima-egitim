@@ -18,19 +18,23 @@ def main() -> int:
     print("OK: Python sürümü uygun (3.10+).")
 
     eksikler: list[str] = []
-    for mod in ("numpy", "matplotlib", "pytest"):
+    # numpy ve pytest zorunlu; matplotlib yalnızca isteğe bağlı grafikler için.
+    for mod, zorunlu in (("numpy", True), ("pytest", True), ("matplotlib", False)):
         try:
             __import__(mod)
             print(f"OK: {mod} import edildi.")
         except ImportError:
-            print(f"EKSIK: {mod} — `pip install -r requirements.txt` çalıştırın.")
-            eksikler.append(mod)
+            if zorunlu:
+                print(f"EKSIK: {mod} — `pip install -r requirements.txt` çalıştırın.")
+                eksikler.append(mod)
+            else:
+                print(f"UYARI: {mod} yok — grafikler atlanır, örnekler yine çalışır.")
 
     print("-" * 40)
     if eksikler:
         print(f"Sonuç: {len(eksikler)} paket eksik.")
         return 1
-    print("Sonuç: Kurulum hazır. Örnek: python ch01-giris/ornekler/vacuum_agent.py")
+    print("Sonuç: Kurulum hazır. Testler: pytest  ·  Örnek: python ch01-giris/ornekler/vacuum_agent.py")
     return 0
 
 

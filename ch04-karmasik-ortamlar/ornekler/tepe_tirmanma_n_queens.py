@@ -1,127 +1,165 @@
 #!/usr/bin/env python3
-"""N-vezir tepe tırmanma — Bölüm 4. Saldırı metriği + isteğe bağlı rastgele yeniden başlatma."""
+"""N-vezir üzerinde tepe tırmanma: kitaptaki deneyi yeniden üretmek.
+
+Durum: her sütunda bir vezir; tahta[c] = c. sütundaki vezirin satırı.
+h = birbirini tehdit eden vezir çifti sayısı (0 = çözüm). Amaç h'yi küçültmek.
+
+Algoritma: **en dik tırmanış** (steepest ascent). 8 × 7 = 56 komşunun hepsine bakılır;
+en iyisine gidilir (eşitlik varsa rastgele biri). İyileşme yoksa durulur.
+İsteğe bağlı **yana hamle**: En iyi komşu eşit değerdeyse, art arda en fazla
+`yana_sinir` kez yine de hareket edilir (düzlükten çıkmayı ummak için).
+
+Kitaptaki sonuçlar (8-vezir, rastgele başlangıç):
+    yana hamle yok     → %14 başarı; başarıda ~4, takılmada ~3 adım
+    100 yana hamleye kadar → %94 başarı; başarıda ~21, takılmada ~64 adım
+Rastgele yeniden başlatma: beklenen deneme sayısı 1/p (yana hamle yoksa ~7).
+
+Çalıştırma:
+    python tepe_tirmanma_n_queens.py                    # tek koşu
+    python tepe_tirmanma_n_queens.py --yeniden-baslat 30
+    python tepe_tirmanma_n_queens.py --deney 1000       # kitaptaki istatistikler
+"""
 from __future__ import annotations
 
 import argparse
 import random
-from typing import List, Tuple
+from dataclasses import dataclass
 
 
-def saldiri_sayisi(tahta: List[int]) -> int:
-    """tahta[c] = satır (0..N-1). Aynı satır veya çaprazdaki vezir çiftlerini say."""
+def saldiri_sayisi(tahta: list[int]) -> int:
+    """Aynı satırda veya aynı çaprazda olan vezir çiftlerini say."""
     n = len(tahta)
-    saldiri = 0
-    for c1 in range(n):
-        for c2 in range(c1 + 1, n):
-            r1, r2 = tahta[c1], tahta[c2]
-            if r1 == r2 or abs(r1 - r2) == abs(c1 - c2):
-                saldiri += 1
-    return saldiri
+    return sum(
+        1
+        for c1 in range(n)
+        for c2 in range(c1 + 1, n)
+        if tahta[c1] == tahta[c2] or abs(tahta[c1] - tahta[c2]) == c2 - c1
+    )
 
 
-def rastgele_tahta(n: int) -> List[int]:
-    return [random.randrange(n) for _ in range(n)]
+def rastgele_tahta(n: int, rng: random.Random) -> list[int]:
+    return [rng.randrange(n) for _ in range(n)]
 
 
-def en_iyi_komsu(tahta: List[int]) -> Tuple[List[int], int]:
-    """Tek bir veziri başka satıra taşıyarak en az saldırılı komşuyu bul."""
+def komsu_degerleri(tahta: list[int]) -> dict[tuple[int, int], int]:
+    """Her (sütun, yeni satır) hamlesi için komşunun h değeri.
+
+    Verimli hesap: Bir veziri taşımak yalnızca o vezirin yaptığı saldırıları
+    değiştirir. h_yeni = h − çatışma(c, eski satır) + çatışma(c, yeni satır).
+    """
     n = len(tahta)
-    en_iyi = list(tahta)
-    en_iyi_saldiri = saldiri_sayisi(tahta)
-    for sutun in range(n):
-        eski = tahta[sutun]
+    h = saldiri_sayisi(tahta)
+    sonuc = {}
+    for c in range(n):
+        def catisma(satir: int) -> int:
+            return sum(
+                1 for c2 in range(n)
+                if c2 != c and (tahta[c2] == satir or abs(tahta[c2] - satir) == abs(c2 - c))
+            )
+        eski = catisma(tahta[c])
         for satir in range(n):
-            if satir == eski:
-                continue
-            aday = list(tahta)
-            aday[sutun] = satir
-            s = saldiri_sayisi(aday)
-            if s < en_iyi_saldiri:
-                en_iyi_saldiri = s
-                en_iyi = aday
-    return en_iyi, en_iyi_saldiri
+            if satir != tahta[c]:
+                sonuc[(c, satir)] = h - eski + catisma(satir)
+    return sonuc
 
 
-def tepe_tirmanma(n: int, max_adim: int = 200) -> Tuple[List[int], int, int]:
-    """Tek koşu. Döner: (tahta, saldiri, adim_sayisi)."""
-    tahta = rastgele_tahta(n)
-    mevcut = saldiri_sayisi(tahta)
+@dataclass
+class Kosu:
+    tahta: list[int]
+    h: int
+    adim: int
+
+    @property
+    def basarili(self) -> bool:
+        return self.h == 0
+
+
+def tepe_tirmanma(n: int, rng: random.Random, yana_sinir: int = 0, max_adim: int = 1000) -> Kosu:
+    """En dik tırmanış (h'yi en çok azaltan komşu), isteğe bağlı yana hamle."""
+    tahta = rastgele_tahta(n, rng)
+    h = saldiri_sayisi(tahta)
+    yana = 0
     for adim in range(max_adim):
-        if mevcut == 0:
-            return tahta, 0, adim
-        komsu, ks = en_iyi_komsu(tahta)
-        if ks >= mevcut:
-            return tahta, mevcut, adim  # yerel tepe / plato
-        tahta, mevcut = komsu, ks
-    return tahta, mevcut, max_adim
+        if h == 0:
+            return Kosu(tahta, 0, adim)
+        degerler = komsu_degerleri(tahta)
+        en_iyi = min(degerler.values())
+        if en_iyi > h or (en_iyi == h and yana >= yana_sinir):
+            return Kosu(tahta, h, adim)  # yerel minimum ya da düzlük
+        yana = yana + 1 if en_iyi == h else 0
+        c, satir = rng.choice([k for k, v in degerler.items() if v == en_iyi])
+        tahta = tahta.copy()
+        tahta[c] = satir
+        h = en_iyi
+    return Kosu(tahta, h, max_adim)
 
 
-def rastgele_yeniden_baslat(
-    n: int, deneme: int, max_adim: int = 200
-) -> Tuple[List[int], int, int, int]:
-    """En iyi sonucu sakla. Döner: (tahta, saldiri, basarili_deneme_no, toplam_adim)."""
-    en_iyi_t: List[int] = []
-    en_iyi_s = n * n
-    toplam_adim = 0
-    basarili = -1
-    for i in range(1, deneme + 1):
-        t, s, a = tepe_tirmanma(n, max_adim)
-        toplam_adim += a
-        if s < en_iyi_s:
-            en_iyi_s, en_iyi_t = s, t
-            if s == 0:
-                basarili = i
-                break
-    return en_iyi_t, en_iyi_s, basarili if basarili > 0 else deneme, toplam_adim
+def rastgele_yeniden_baslat(n: int, rng: random.Random, yana_sinir: int = 0,
+                            en_fazla: int = 1000) -> tuple[Kosu, int, int]:
+    """Başarılı olana kadar yeniden başlat. Döner: (son koşu, deneme sayısı, toplam adım)."""
+    toplam = 0
+    for deneme in range(1, en_fazla + 1):
+        k = tepe_tirmanma(n, rng, yana_sinir)
+        toplam += k.adim
+        if k.basarili:
+            return k, deneme, toplam
+    return k, en_fazla, toplam
 
 
-def tahta_yazdir(tahta: List[int]) -> None:
+def deney(tekrar: int, yana_sinir: int, tohum: int = 0, n: int = 8) -> dict[str, float]:
+    """Kitaptaki istatistikleri hesapla: başarı oranı ve ortalama adım sayıları."""
+    rng = random.Random(tohum)
+    kosular = [tepe_tirmanma(n, rng, yana_sinir) for _ in range(tekrar)]
+    basari = [k for k in kosular if k.basarili]
+    takilma = [k for k in kosular if not k.basarili]
+    ort = lambda ks: sum(k.adim for k in ks) / len(ks) if ks else float("nan")  # noqa: E731
+    return {
+        "oran": len(basari) / tekrar,
+        "adim_basari": ort(basari),
+        "adim_takilma": ort(takilma),
+    }
+
+
+def tahta_yazdir(tahta: list[int]) -> None:
     n = len(tahta)
     for r in range(n):
-        satir = ""
-        for c in range(n):
-            satir += "♛ " if tahta[c] == r else ". "
-        print(satir)
+        print("  " + " ".join("♛" if tahta[c] == r else "·" for c in range(n)))
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="N-vezir tepe tırmanma (Bölüm 4)")
-    p.add_argument("-n", type=int, default=8, help="Tahta boyutu (varsayılan 8)")
-    p.add_argument(
-        "--yeniden-baslat",
-        type=int,
-        default=0,
-        metavar="K",
-        help="K rastgele yeniden başlatma (0 = tek koşu)",
-    )
-    p.add_argument("--tohum", type=int, default=None, help="Rastgele tohum")
-    p.add_argument("--max-adim", type=int, default=200)
-    args = p.parse_args()
+    ap = argparse.ArgumentParser(description="N-vezir tepe tırmanma (Bölüm 4)")
+    ap.add_argument("-n", type=int, default=8)
+    ap.add_argument("--yeniden-baslat", type=int, default=0, metavar="K",
+                    help="başarılı olana kadar en fazla K deneme")
+    ap.add_argument("--yana", type=int, default=0, help="izin verilen art arda yana hamle (kitap: 100)")
+    ap.add_argument("--tohum", type=int, default=1)
+    ap.add_argument("--deney", type=int, default=0, metavar="T",
+                    help="T rastgele başlangıçla kitaptaki istatistikleri hesapla")
+    args = ap.parse_args()
+    rng = random.Random(args.tohum)
 
-    if args.tohum is not None:
-        random.seed(args.tohum)
+    if args.deney:
+        print(f"8-vezir, {args.deney} rastgele başlangıç (kitap değerleri parantez içinde)\n")
+        print(f"{'yana hamle':<12}{'başarı':>10}{'adım (başarı)':>16}{'adım (takılma)':>17}")
+        for yana, kitap in [(0, "(%14, ~4, ~3)"), (100, "(%94, ~21, ~64)")]:
+            d = deney(args.deney, yana, args.tohum)
+            print(f"{yana:<12}{d['oran']:>9.0%}{d['adim_basari']:>16.1f}{d['adim_takilma']:>17.1f}   {kitap}")
+        p = deney(args.deney, 0, args.tohum)["oran"]
+        print(f"\nYeniden başlatmayla beklenen deneme sayısı ≈ 1/p = 1/{p:.2f} ≈ {1 / p:.1f} (kitap: ~7)")
+        return
 
-    print(f"=== N-vezir tepe tırmanma (N={args.n}) ===\n")
-
-    if args.yeniden_baslat <= 0:
-        tahta, saldiri, adim = tepe_tirmanma(args.n, args.max_adim)
-        print(f"Tek koşu — adım: {adim}, saldırı: {saldiri}")
+    print(f"=== {args.n}-vezir tepe tırmanma (yana hamle sınırı: {args.yana}) ===\n")
+    if args.yeniden_baslat:
+        k, deneme, toplam = rastgele_yeniden_baslat(args.n, rng, args.yana, args.yeniden_baslat)
+        print(f"Yeniden başlatma: {deneme}. denemede {'başarılı' if k.basarili else 'başarısız'}, "
+              f"toplam {toplam} adım")
     else:
-        tahta, saldiri, deneme, toplam = rastgele_yeniden_baslat(
-            args.n, args.yeniden_baslat, args.max_adim
-        )
-        print(
-            f"Yeniden başlatma — deneme: {deneme}/{args.yeniden_baslat}, "
-            f"toplam adım≈{toplam}, saldırı: {saldiri}"
-        )
-
-    print("\nTahta:")
-    tahta_yazdir(tahta)
-    print(f"\nSaldırı metriği: {saldiri}", end="")
-    if saldiri == 0:
-        print(" → çözüm bulundu!")
-    else:
-        print(" → yerel tepe (tam çözüm değil). --yeniden-baslat deneyin.")
+        k = tepe_tirmanma(args.n, rng, args.yana)
+        print(f"Tek koşu: {k.adim} adım, son h = {k.h}")
+    print()
+    tahta_yazdir(k.tahta)
+    print(f"\nh = {k.h} → " + ("çözüm bulundu!" if k.basarili else
+                               "yerel minimum/düzlük. --yeniden-baslat veya --yana 100 dene."))
 
 
 if __name__ == "__main__":

@@ -1,39 +1,51 @@
-# Bölüm 3 — Çözüm arama yoluyla problem çözme
+# Bölüm 3 — Arama yoluyla problem çözme
 
-AIMA 4. baskı, Bölüm 3 ile uyumlu **özgün Türkçe** öğrenme paketi.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 3 · *Solving Problems by Searching*
 
 ## Öğrenme hedefleri
 
-1. Bir problemi **durum, başlangıç, eylemler, geçiş, hedef testi, yol maliyeti** ile formüle etmek.
-2. **Ağaç arama** ile **graf arama** farkını açıklamak (tekrar ziyaret).
-3. Kör aramayı ayırt etmek: **BFS**, **DFS**, **UCS** (tekdüze maliyet).
-4. Bilgilendirilmiş aramada **açgözlü (greedy)** ve **A\*** sezgisini anlatmak; kabul edilebilir sezgisel fikrini bilmek.
-5. Romanya haritası örneğinde algoritmaları çalıştırıp yol, maliyet ve genişletilen düğüm sayısını yorumlamak.
+1. Bir problemi beş parçasıyla biçimsel olarak tanımlamak.
+2. Arama ağacı ile durum uzayını, ağaç benzeri arama ile graf aramasını ayırt etmek.
+3. BFS, UCS, DFS, DLS, IDS ve çift yönlü aramayı tamlık, optimallik, zaman ve bellek açısından karşılaştırmak.
+4. A*'ın optimalliğini kabul edilebilirlik ve tutarlılıkla açıklamak.
+5. Sezgisel türetmek (gevşetme) ve sezgiselleri etkin dallanma faktörüyle karşılaştırmak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ornekler/romania_arama.py` | BFS, DFS, UCS, A* — klasik Romanya haritası |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | İlk 2 alıştırmanın çözümleri |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 3'ü oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır, sonuçları kitaptaki şekillerle karşılaştır.
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA Bölüm 3’ü oku (yasal nüsha).
-2. `notlar.md` ile pekiştir.
-3. Örneği çalıştır:
-   ```bash
-   python ornekler/romania_arama.py
-   python ornekler/romania_arama.py --baslangic Arad --hedef Bucharest
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/arama.py` | Arama kütüphanesi: `Problem`, `Dugum`, en iyi öncelikli arama (UCS, açgözlü, A*, ağırlıklı A*), BFS, DFS, DLS, IDS, IDA*, etkin dallanma |
+| `ornekler/romania_arama.py` | Romanya haritası: 8 algoritma, A* izi, çift yönlü UCS |
+| `ornekler/sekiz_bulmaca.py` | 8-bulmaca: h1, h2, BFS/A*/IDA*, rastgele bulmacalarda b* karşılaştırması |
+| `alistirmalar.md` | 10 alıştırma (★ – ★★★) |
+| `cozumler/` | Tüm çözümler (A8–A10 çalıştırılabilir kod) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+```bash
+python ornekler/romania_arama.py
+python ornekler/sekiz_bulmaca.py
+python cozumler/alistirma8_gevsetme.py
+python cozumler/alistirma9_agirlikli.py
+python cozumler/alistirma10_kurt_keci_lahana.py
+```
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+## Kitapla doğrulama
+
+`tests/test_ch03_arama.py` şu değerleri kitaptakilerle karşılaştırır:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| A* ve UCS, Arad → Bucharest | 418 km (Sibiu – Rimnicu Vilcea – Pitesti) | ✔ |
+| Açgözlü arama | 450 km (Fagaras üzerinden) | ✔ |
+| A* izinde f değerleri | 366, 393, 413, 415, 417, 418 | ✔ |
+| 8-bulmaca örneği: h1, h2, optimal uzunluk | 8, 18, 26 | ✔ |
+| Etkin dallanma, N = 52, d = 5 | 1,92 | ✔ |
+| N(IDS), N(BFS), b = 10, d = 5 | 123.450, 111.110 | ✔ |
