@@ -77,7 +77,7 @@ python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
 python ch16-basit-kararlar/ornekler/fayda_kurami.py
 python ch16-basit-kararlar/ornekler/bilgi_degeri.py
 python ch17-karmasik-kararlar/ornekler/deger_yineleme.py
-python ch17-karmasik-kararlar/ornekler/politika_degerlendirme.py
+python ch17-karmasik-kararlar/ornekler/dort_uc_dunya.py
 python ch18-cok-ajanli-karar/ornekler/mahkum_ikilemi.py
 python ch18-cok-ajanli-karar/ornekler/nash_2x2.py
 python ch19-ogrenme-orneklerden/ornekler/karar_agaci_mini.py

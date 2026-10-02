@@ -12,25 +12,18 @@ Son güncelleme: 2026-10-02
 
 | Bölüm | Durum |
 |---|---|
-| 1–16 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 17–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
+| 1–17 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
+| 18–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-Bölüm 16 2026-10-02'de bitti (eski `beklenen_fayda.py` ve `voi_mini.py` kaldırıldı; yerlerini yeni örnekler aldı).
+Bölüm 16 ve 17 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
 
 ---
 
 ## 2. Açık konular (önemli)
 
-1. **Bölüm 17 değer yinelemesi hatası — HENÜZ DÜZELTİLMEDİ.**
-   `ch17-karmasik-kararlar/ornekler/deger_yineleme.py` ve `politika_degerlendirme.py` (ikisinde de aynı kod var): uç durumların ödülü hem `V[s] = TERM[s]` ile hem de `reward()` içinde (`if sp in TERM: return TERM[sp]`) sayılıyor; yani iki kez. Daha önceki bir raporda bu hatanın düzeltildiği yazılmıştı; bu doğru değildi, yalnızca geçici bir denemede doğrulanmıştı, dosyalar değişmedi.
-   Yapılacak: çift sayımı kaldır; kitabın 4×3 dünyasını ekle (γ = 1, uç olmayan her durumda ödül −0.04, hareket 0.8 / 0.1 / 0.1) ve kitaptaki faydaları test et. Beklenen değerler (kitaptan yeniden doğrula):
-   ```
-   0.812  0.868  0.918  +1
-   0.762  (duvar) 0.660  −1
-   0.705  0.655  0.611  0.388
-   ```
+1. **Bölüm 17 değer yinelemesi hatası — DÜZELTİLDİ (2026-10-02).** Not: Eski plandaki "beklenen" faydalar (0.812, 0.868, …) 3. baskıya aitti. 4. baskıda ödül geçişe ait (R(s, a, s′)) ve Şekil 17.3 değerleri 0.8516 0.9078 0.9578 / 0.8016 · 0.7003 / 0.7453 0.6953 0.6514 0.4279; testler bunları doğruluyor.
 2. **PDF'teki baskı hatası (Bölüm 13):** Elimizdeki PDF'te Şekil 13.2'deki Alarm tablosu yanlış basılmış (.70/.01 tekrarı). Standart değerler (.95/.94/.29/.001) kullanıldı; `ch13-olasiliksal-akil/notlar.md` §1'de açıklandı.
 3. **Bölüm 20 klasör adı:** `ch20-bilgi-ogrenme` adı içerikle uyuşmuyor (kitapta "Learning Probabilistic Models"). Yeniden adlandırılırsa testler ve bağlantılar güncellenmeli.
 4. **Kök dosyalar:** `README.md` ve `MUFREDAT.md` eski; bitince güncellenmeli. Bütün bölümlerin "Terimler" tablolarından bir `SOZLUK.md` üretilecek. `BITIRME`/`CONTRIBUTING` dosyaları gözden geçirilecek.
@@ -55,11 +48,10 @@ Bölüm 16 2026-10-02'de bitti (eski `beklenen_fayda.py` ve `voi_mini.py` kaldı
 
 ## 4. Sonraki bölümler için not edilmiş kitap değerleri (yeniden doğrula)
 
-- **17:** 4×3 dünya faydaları (yukarıda); değer yinelemesi, politika yinelemesi, POMDP.
 - **18:** İki parmaklı Morra oyununun değeri, mahkûm ikilemi.
 - **19:** Restoran örneği: Kazanç(Patrons) ≈ 0.541 bit, Kazanç(Type) = 0.
 - **20:** Şeker torbaları: bir limonlu şekerden sonra P(sonraki limon) = 0.65.
-- **22:** 4×3 dünyada pasif TD öğrenmesi.
+- **22:** 4×3 dünyada pasif TD öğrenmesi. 4×3 dünya için `ch17-karmasik-kararlar/ornekler/mdp.py` hazır (4. baskı ödül tanımı); yeniden kullanılabilir.
 - **23:** CYK ayrıştırma.
 - **26:** Monte Carlo konumlandırma.
 
