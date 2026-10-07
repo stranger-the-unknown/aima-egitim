@@ -103,6 +103,7 @@ python ch26-robotik/ornekler/insan_robot.py
 python ch27-felsefe-etik/ornekler/mahremiyet.py
 python ch27-felsefe-etik/ornekler/adalet.py
 python ch27-felsefe-etik/ornekler/guvenlik.py
+python ch28-AI-gelecek/ornekler/hesaplama_sinirlari.py
 python ch28-AI-gelecek/ornekler/yetenek_haritasi.py
 python ch28-AI-gelecek/ornekler/proje_fikirleri.py
 ```
@@ -154,7 +155,7 @@ aima-egitim/
 ├── ch25-bilgisayarli-goru/      ← 🟢 hazır (izdüşüm, kenar, doku, optik akış, stereo, NMS)
 ├── ch26-robotik/                ← 🟢 hazır (MCL, EKF, C-uzayı, PRM/RRT, PID/LQR, DAGGER)
 ├── ch27-felsefe-etik/           ← 🟢 hazır (mahremiyet, adalet ölçütleri, güvenlik)
-├── ch28-AI-gelecek/             ← 🟢 hazır (yetenek haritası, proje fikirleri)
+├── ch28-AI-gelecek/             ← 🟢 hazır (kaba kuvvetin sınırları, üst-akıl yürütme, proje fikirleri)
 └── BITIRME.md                   ← tebrik + tekrar yolu
 ```
 

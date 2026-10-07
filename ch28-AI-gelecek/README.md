@@ -1,42 +1,43 @@
-# Bölüm 28 — AI’nin geleceği
+# Bölüm 28 — Yapay zekânın geleceği
 
-AIMA 4. baskı sonuç / gelecek temalarıyla uyumlu **özgün Türkçe** öğrenme paketi.
-Eğilimler, AGI tartışmaları (üst düzey), tamamlayıcı teknolojiler, öğrenmeye devam etme.
-Yetenek haritası ve proje fikirleri araçları; kitap metni yok.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 28 · *The Future of AI*
 
 ## Öğrenme hedefleri
 
-1. Güncel AI eğilimlerini abartmadan sınıflandırmak.
-2. AGI tartışmalarını “iddia / kanıt / belirsizlik” diliyle özetlemek.
-3. AI’yi tamamlayan alanları (robotik, HCI, veri mühendisliği, güvenlik…) bağlamak.
-4. AIMA bölümlerini modern yığınlara bağlayan kişisel yol haritası çıkarmak.
-5. Portföy için mini proje fikirleri seçmek ve zayıf noktaları gözden geçirmek.
+1. YZ bileşenlerinin her birinde nerede olduğumuzu ve neyin eksik olduğunu önceki bölümlere bağlayarak açıklamak.
+2. Kaba kuvvetin neden yetmediğini sayısal bir örnekle göstermek.
+3. Her an kesilebilir algoritmaları, karar kuramsal üst-akıl yürütmeyi ve sınırlı en iyiliği açıklamak.
+4. Dar ve genel YZ tartışmasını ve YZ mühendisliğinin olgunlaşma sorununu değerlendirmek.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ornekler/yetenek_haritasi.py` | AIMA bölümleri → modern yığın yol haritası |
-| `ornekler/proje_fikirleri.py` | Kitap kısımlarına göre mini proje fikirleri |
-| `alistirmalar.md` | 5 yansıtma alıştırması |
-| `cozumler/` | A1 ve A2 anahtarları |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 28'i oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır (yalnızca numpy gerekir).
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
+6. Kitabı bitirdin: [`../BITIRME.md`](../BITIRME.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA sonuç / gelecek kısımlarını oku (yasal nüsha).
-2. `notlar.md` + kök `BITIRME.md` ile kapanış planı yap.
-3. Araçları çalıştır:
-   ```bash
-   python ornekler/yetenek_haritasi.py
-   python ornekler/proje_fikirleri.py
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/hesaplama_sinirlari.py` | Borges hesabı, kaynak eğilimlerinden katlanma süreleri, her an kesilebilir algoritma, hesaplamanın değeri, sınırlı en iyilik (oyuncak) |
+| `ornekler/yetenek_haritasi.py` | Kitap dışı: AIMA bölümlerinden modern araçlara kişisel çalışma yol haritası (`--yol …`) |
+| `ornekler/proje_fikirleri.py` | Kitap dışı: bölümlere göre 1–2 haftalık portföy proje fikirleri |
+| `alistirmalar.md` | 8 alıştırma (5 hesap/kod, 3 yansıtma) |
+| `cozumler/` | Tüm çözümler (A2–A6 kod) |
+| `quiz.md` | 10 soru + cevaplar |
 
-## Kaynaklar
+## Kitapla doğrulama
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+`tests/test_ch28_ai_gelecek.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| Borges hesabı | 10⁵¹ işlem/s ile bir yılda yalnızca 11 sözcüklük diziler | ✔ (100 000 sözcüklük sözlük bizim varsayımımız) |
+| arXiv makaleleri | 2009–2017 arasında iki yılda bir ikiye | ✔ |
+| Süper bilgisayar hızı | 1969–2019 arasında 10¹⁰ kattan fazla | ✔ ~1.5 yılda bir ikiye (bizim hesabımız) |
+| Her an kesilebilirlik | Niteliği zamanla artar | ✔ |
+| Üst-akıl yürütme | Hesaplamanın değeri = karar iyileşmesi − gecikme maliyeti; miyopi sorunu | ✔ |
+| Sınırlı en iyilik | Sabit mimaride en iyi program | ✔ oyuncak örnek |
