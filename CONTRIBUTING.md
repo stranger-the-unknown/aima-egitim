@@ -1,6 +1,6 @@
 # Katkı rehberi
 
-Bu depo AIMA 4. baskıyı bölüm bölüm çalışmak için hazırlandı; 28 bölümün hepsi tamam. Bu rehber, mevcut bir bölümü düzeltirken ya da genişletirken uyulacak kuralları anlatır. Nerede kalındığı ve açık konular [`DEVAM_PLANI.md`](DEVAM_PLANI.md) dosyasındadır.
+Bu depo AIMA 4. baskıyı bölüm bölüm çalışmak için hazırlandı; 28 bölümün hepsi tamam. Bu rehber, mevcut bir bölümü düzeltirken ya da genişletirken uyulacak kuralları anlatır.
 
 ## Telif kuralları (zorunlu)
 
@@ -16,6 +16,13 @@ Bu depo AIMA 4. baskıyı bölüm bölüm çalışmak için hazırlandı; 28 bö
 - Kitaptaki sayısal örnekler (tablolar, şekillerdeki değerler) mümkünse kodla yeniden üretilir ve testle doğrulanır; bölüm `README.md`'sindeki **"Kitapla doğrulama"** tablosuna eklenir.
 - Kitapta olmayan seçimler (yapay veri, parametreler, eşikler) notlarda ve README'de "bizim varsayımımız / bizim seçimimiz" diye açıkça işaretlenir.
 - Kitapta tutarsızlık ya da baskı hatası bulunursa notta açıklanır (ör. Bölüm 13'teki Alarm tablosu).
+- Kitabı karşılaştırmak için PDF'i metne çevirin (poppler-utils) ve çıktıyı depoya koymayın:
+
+```bash
+pdftotext -layout "Artificial-Intelligence-A-Modern-Approach-4th edition.pdf" aima.txt
+```
+
+  PDF sayfa numarası ≈ kitap sayfa numarası + 13.
 
 ## Bölüm klasörünün düzeni
 
