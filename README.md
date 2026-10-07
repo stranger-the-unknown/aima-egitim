@@ -10,6 +10,7 @@ Russell & Norvig'in **Artificial Intelligence: A Modern Approach (AIMA), 4. bask
 - **Çalıştırılabilir örnekler** — arama, ajanlar, mantık vb. için net Python kodu
 - **Alıştırmalar ve quizler** — kavramı pekiştirmek için özgün sorular
 - **Müfredat yol haritası** — 28 bölüm, haftalık tempo önerisi
+- **Sözlük** — [`SOZLUK.md`](SOZLUK.md): bütün bölümlerin Türkçe–İngilizce terimleri (`python scripts/sozluk_uret.py` ile üretilir)
 - **Kapanış** — [`BITIRME.md`](BITIRME.md) tebrik + önerilen tekrar yolu
 
 Kitabı yasal olarak edinmeniz gerekir. Resmi kaynaklar:
@@ -57,7 +58,7 @@ python ch05-rakip-arama/ornekler/minimax_tictactoe.py --mod ajan-ajan
 python ch06-kisit-saglama/ornekler/harita_boyama_csp.py --mrv --forward
 python ch06-kisit-saglama/ornekler/n_vezir_csp.py --n 8
 python ch07-mantiksal-ajanlar/ornekler/onerme_mantigi.py
-python ch07-mantiksal-ajanlar/ornekler/wumpus_basit.py
+python ch07-mantiksal-ajanlar/ornekler/wumpus_mantik.py
 python ch08-birinci-derece-mantik/ornekler/fol_sozluk.py
 python ch08-birinci-derece-mantik/ornekler/fol_ceviri.py
 python ch09-cikarim-birinci-derece/ornekler/birlesim_unification.py
@@ -70,8 +71,9 @@ python ch12-belirsiz-bilgi/ornekler/bayes_kurali.py
 python ch12-belirsiz-bilgi/ornekler/naive_bayes_mini.py
 python ch13-olasiliksal-akil/ornekler/cpt_goster.py
 python ch13-olasiliksal-akil/ornekler/bayes_agi_kucuk.py
-python ch14-zamansal-olasilik/ornekler/hmm_filtreleme.py
-python ch14-zamansal-olasilik/ornekler/viterbi_kucuk.py
+python ch14-zamansal-olasilik/ornekler/semsiye.py
+python ch14-zamansal-olasilik/ornekler/kalman.py
+python ch14-zamansal-olasilik/ornekler/parcacik_filtresi.py
 python ch15-olasiliksal-programlama/ornekler/basit_uretimsel_model.py
 python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
 python ch16-basit-kararlar/ornekler/fayda_kurami.py
@@ -96,8 +98,8 @@ python ch24-derin-dil/ornekler/kod_cozme.py
 python ch25-bilgisayarli-goru/ornekler/goruntu_olusumu.py
 python ch25-bilgisayarli-goru/ornekler/ozellikler.py
 python ch25-bilgisayarli-goru/ornekler/tespit.py
-python ch26-robotik/ornekler/lokalizasyon.py
-python ch26-robotik/ornekler/planlama.py
+python ch26-robotik/ornekler/robot_lokalizasyon.py
+python ch26-robotik/ornekler/hareket_planlama.py
 python ch26-robotik/ornekler/kontrol.py
 python ch26-robotik/ornekler/insan_robot.py
 python ch27-felsefe-etik/ornekler/mahremiyet.py

@@ -11,8 +11,8 @@
 | 26.1 Robots | §1 Robot nedir, neden zor? | — |
 | 26.2 Robot Hardware | §2 Robot türleri, algılayıcılar, eyleyiciler | — |
 | 26.3 What kind of problem is robotics solving? | §3 MDP/POMDP/oyun, üç düzeyli hiyerarşi | — |
-| 26.4 Robotic Perception | §4 Hareket/algılayıcı modeli, MCL, EKF, SLAM, öz-denetimli öğrenme | `lokalizasyon.py` |
-| 26.5 Planning and Control | §5 C-uzayı, hareket planlama, yörünge izleme, en iyi denetim | `planlama.py`, `kontrol.py` |
+| 26.4 Robotic Perception | §4 Hareket/algılayıcı modeli, MCL, EKF, SLAM, öz-denetimli öğrenme | `robot_lokalizasyon.py` |
+| 26.5 Planning and Control | §5 C-uzayı, hareket planlama, yörünge izleme, en iyi denetim | `hareket_planlama.py`, `kontrol.py` |
 | 26.6 Planning Uncertain Movements | §6 MPC, bilgi toplama, korumalı hareketler | — |
 | 26.7 Reinforcement Learning in Robotics | §7 Modelden yararlanma, simülasyondan gerçeğe | — |
 | 26.8 Humans and Robots | §8 Eşgüdüm, insan tahmini, tercih ve taklit öğrenmesi | `insan_robot.py` |
@@ -60,7 +60,7 @@ Ham algılayıcı girdileri ile motor akımları arasındaki uçurumu kapatmak i
 
 ---
 
-## 4. Robot algısı (`lokalizasyon.py`)
+## 4. Robot algısı (`robot_lokalizasyon.py`)
 
 İyi bir iç temsil: (1) iyi karar için yeterli bilgi içerir, (2) verimli güncellenebilir, (3) doğal (değişkenleri fiziksel durum değişkenlerine karşılık gelir). Süzme denklemi, eylemlerle koşullanan ve sürekli değişkenler için integralle:
 
@@ -87,7 +87,7 @@ P(Xₜ₊₁ | xₜ, aₜ) **hareket modeli**, P(zₜ₊₁ | Xₜ₊₁) **alg�
 
 ---
 
-## 5. Planlama ve denetim (`planlama.py`, `kontrol.py`)
+## 5. Planlama ve denetim (`hareket_planlama.py`, `kontrol.py`)
 
 **Yol** uzayda bir nokta dizisidir; bulmak **hareket planlama**dır. **Yörünge** zamanı da olan yoldur; izlemek **yörünge izleme denetimi**dir.
 
@@ -215,8 +215,8 @@ Evde bakım (tekerlekli sandalye kolları, beyin–makine arayüzüyle kendini b
 ## Kod rehberi
 
 ```bash
-python ornekler/lokalizasyon.py    # hareket/algılayıcı modelleri, MCL (simetrik koridor), EKF, doğrusallaştırma
-python ornekler/planlama.py        # C-uzayı engeli, kinematik, kol C-uzayında ızgara arama, görünürlük, PRM, RRT, yörünge optimizasyonu
+python ornekler/robot_lokalizasyon.py    # hareket/algılayıcı modelleri, MCL (simetrik koridor), EKF, doğrusallaştırma
+python ornekler/hareket_planlama.py        # C-uzayı engeli, kinematik, kol C-uzayında ızgara arama, görünürlük, PRM, RRT, yörünge optimizasyonu
 python ornekler/kontrol.py         # P, PD, PID, LQR
 python ornekler/insan_robot.py     # amaç çıkarımı, davranış klonlama ve DAGGER, bacak AFSM'si, statik kararlılık
 python cozumler/alistirma_kod.py   # A3, A4, A5, A7, A8, A9, A10

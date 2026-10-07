@@ -12,7 +12,7 @@
   belirsizlik büyür; konumu bilinen bir işaret noktası görülünce küçülür (Şekil 26.9).
 
 Çalıştırma:
-    python lokalizasyon.py
+    python robot_lokalizasyon.py
 """
 from __future__ import annotations
 

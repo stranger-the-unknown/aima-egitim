@@ -14,10 +14,10 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "ornekler"))
 
+import hareket_planlama as pl  # noqa: E402
 import insan_robot as ir  # noqa: E402
 import kontrol as kn  # noqa: E402
-import lokalizasyon as lk  # noqa: E402
-import planlama as pl  # noqa: E402
+import robot_lokalizasyon as lk  # noqa: E402
 
 
 # --- A3: MCL'de parçacık sayısı ve tepe kaybı ----------------------------------------------------------

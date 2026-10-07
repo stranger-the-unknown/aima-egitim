@@ -25,7 +25,7 @@ Bölüm 16–22 2026-10-02'de, 23–28 2026-10-07'de bitti. Bölüm 17'deki değ
 1. **Bölüm 17 değer yinelemesi hatası — DÜZELTİLDİ (2026-10-02).** Not: Eski plandaki "beklenen" faydalar (0.812, 0.868, …) 3. baskıya aitti. 4. baskıda ödül geçişe ait (R(s, a, s′)) ve Şekil 17.3 değerleri 0.8516 0.9078 0.9578 / 0.8016 · 0.7003 / 0.7453 0.6953 0.6514 0.4279; testler bunları doğruluyor.
 2. **PDF'teki baskı hatası (Bölüm 13):** Elimizdeki PDF'te Şekil 13.2'deki Alarm tablosu yanlış basılmış (.70/.01 tekrarı). Standart değerler (.95/.94/.29/.001) kullanıldı; `ch13-olasiliksal-akil/notlar.md` §1'de açıklandı.
 3. **Bölüm 20 klasör adı — DÜZELTİLDİ (2026-10-02):** `ch20-bilgi-ogrenme` → `ch20-olasiliksal-ogrenme`; README ve MUFREDAT güncellendi.
-4. **Kök dosyalar:** `README.md` ve `MUFREDAT.md` eski; bitince güncellenmeli. Bütün bölümlerin "Terimler" tablolarından bir `SOZLUK.md` üretilecek. `BITIRME`/`CONTRIBUTING` dosyaları gözden geçirilecek.
+4. **Kök dosyalar — büyük ölçüde YAPILDI (2026-10-07):** `README.md` örnek komutları ve dizin ağacı güncel (bütün yollar var); `SOZLUK.md` bütün bölümlerin "Terimler" tablolarından `python scripts/sozluk_uret.py` ile üretiliyor (876 terim; elle düzenlenmez). `BITIRME.md` yeni dosyalara bağlandı. Kalan: `MUFREDAT.md` ve `CONTRIBUTING.md` metinlerini baştan okuyup güncellemek. Modül adları bölümler arasında benzersiz olmalı (ch26'da `lokalizasyon.py`/`planlama.py` → `robot_lokalizasyon.py`/`hareket_planlama.py` yapıldı).
 5. **Pull request:** Bölüm 1–22, PR #1 ile 2026-10-02'de `main`'e birleştirildi (merge commit). Bölüm 23–28 yine `egitim-iyilestirme` dalında sürecek ve yeni bir PR'la gelecek (kullanıcıya sorulmadan PR açılmaz, birleştirmeyi kullanıcı yapar).
 
 ---

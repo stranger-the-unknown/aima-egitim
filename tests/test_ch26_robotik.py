@@ -6,8 +6,8 @@ import pytest
 
 from yardimci import yukle
 
-lk = yukle("ch26-robotik/ornekler/lokalizasyon.py")
-pl = yukle("ch26-robotik/ornekler/planlama.py")
+lk = yukle("ch26-robotik/ornekler/robot_lokalizasyon.py")
+pl = yukle("ch26-robotik/ornekler/hareket_planlama.py")
 kn = yukle("ch26-robotik/ornekler/kontrol.py")
 ir = yukle("ch26-robotik/ornekler/insan_robot.py")
 

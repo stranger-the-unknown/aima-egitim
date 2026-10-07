@@ -23,8 +23,8 @@
 
 | Dosya | İçerik |
 |---|---|
-| `ornekler/lokalizasyon.py` | Kinematik hareket modeli, işaret ve uzaklık taraması modelleri, ışın izleme, Monte Carlo lokalizasyonu (simetrik koridor), EKF, doğrusallaştırma |
-| `ornekler/planlama.py` | C-uzayı engeli (Minkowski), iki eklemli kol kinematiği ve C-uzayı, ızgara araması, görünürlük çizgesi, k-PRM, çift yönlü RRT + kısaltma, yörünge optimizasyonu |
+| `ornekler/robot_lokalizasyon.py` | Kinematik hareket modeli, işaret ve uzaklık taraması modelleri, ışın izleme, Monte Carlo lokalizasyonu (simetrik koridor), EKF, doğrusallaştırma |
+| `ornekler/hareket_planlama.py` | C-uzayı engeli (Minkowski), iki eklemli kol kinematiği ve C-uzayı, ızgara araması, görünürlük çizgesi, k-PRM, çift yönlü RRT + kısaltma, yörünge optimizasyonu |
 | `ornekler/kontrol.py` | P, PD, PID denetçileri, LQR (Riccati) |
 | `ornekler/insan_robot.py` | Amaç çıkarımı (26.8–26.9), davranış klonlama ve DAGGER, bacak AFSM'si, üçlü yürüyüşte statik kararlılık |
 | `alistirmalar.md` | 10 alıştırma |

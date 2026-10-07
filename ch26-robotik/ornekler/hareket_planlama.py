@@ -12,7 +12,7 @@
 * Yörünge optimizasyonu: J = J_eff + λ J_obs, gradyan inişi; yalnızca J_eff için en iyi yol doğrudur (Şekil 26.20).
 
 Çalıştırma:
-    python planlama.py
+    python hareket_planlama.py
 """
 from __future__ import annotations
 
