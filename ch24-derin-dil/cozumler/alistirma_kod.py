@@ -69,7 +69,7 @@ def main() -> None:
 
     print("\n=== A6: konum kodlamalarının iç çarpımı (10. konumla) ===")
     for k, v in a6().items():
-        print(f"  uzaklık {k}: {v:.3f}")
+        print(f"  {'uzaklık ' + str(k) if isinstance(k, int) else k}: {v:.3f}")
 
     print("\n=== A8: ışın genişliği ===")
     for b, (s, p) in a8().items():

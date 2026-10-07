@@ -90,8 +90,9 @@ python ch22-pekistirmeli-ogrenme/ornekler/pasif_ogrenme.py
 python ch22-pekistirmeli-ogrenme/ornekler/aktif_ogrenme.py
 python ch23-dogal-dil/ornekler/dil_modelleri.py
 python ch23-dogal-dil/ornekler/ayristirma.py
-python ch24-derin-dil/ornekler/embedding_benzerlik.py
-python ch24-derin-dil/ornekler/dikkat_skoru.py
+python ch24-derin-dil/ornekler/gomme.py
+python ch24-derin-dil/ornekler/dikkat.py
+python ch24-derin-dil/ornekler/kod_cozme.py
 python ch25-bilgisayarli-goru/ornekler/konvolusyon_mini.py
 python ch25-bilgisayarli-goru/ornekler/histogram_ozellik.py
 python ch26-robotik/ornekler/grid_lokalizasyon.py
@@ -144,8 +145,8 @@ aima-egitim/
 ├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
 ├── ch21-derin-ogrenme/          ← 🟢 hazır (geri yayılım, CNN, RNN, otokodlayıcı)
 ├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (ADP, TD, Q-öğrenme, SARSA, politika araması)
-├── ch23-dogal-dil/                 ← 🟢 hazır (n-gram, CYK, PCFG, anlambilim)
-├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
+├── ch23-dogal-dil/              ← 🟢 hazır (n-gram, CYK, PCFG, anlambilim)
+├── ch24-derin-dil/              ← 🟢 hazır (gömme, dikkat, transformer, ışın araması)
 ├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
 ├── ch26-robotik/                ← 🟢 hazır (lokalizasyon, potansiyel alan)
 ├── ch27-felsefe-etik/           ← 🟢 hazır (senaryo kartı, güvenlik listesi)
