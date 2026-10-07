@@ -12,12 +12,12 @@ Son güncelleme: 2026-10-02
 
 | Bölüm | Durum |
 |---|---|
-| 1–25 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 26–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
+| 1–26 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
+| 27–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-Bölüm 16–22 2026-10-02'de, 23–25 2026-10-07'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
+Bölüm 16–22 2026-10-02'de, 23–26 2026-10-07'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
 
 ---
 
