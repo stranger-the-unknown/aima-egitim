@@ -4,7 +4,7 @@
 > Çalışmaya yeni bir oturumda (ya da başka bir bilgisayarda) devam ederken **önce bunu oku**.
 > Çalışma bitip `main`'e birleştirilmeden önce bu dosya silinebilir.
 
-Son güncelleme: 2026-10-02
+Son güncelleme: 2026-10-07
 
 ---
 
@@ -12,12 +12,11 @@ Son güncelleme: 2026-10-02
 
 | Bölüm | Durum |
 |---|---|
-| 1–22 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 23–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
+| 1–28 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
+Bölüm 16–22 2026-10-02'de, 23–28 2026-10-07'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
 
 ---
 
@@ -26,8 +25,8 @@ Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift say
 1. **Bölüm 17 değer yinelemesi hatası — DÜZELTİLDİ (2026-10-02).** Not: Eski plandaki "beklenen" faydalar (0.812, 0.868, …) 3. baskıya aitti. 4. baskıda ödül geçişe ait (R(s, a, s′)) ve Şekil 17.3 değerleri 0.8516 0.9078 0.9578 / 0.8016 · 0.7003 / 0.7453 0.6953 0.6514 0.4279; testler bunları doğruluyor.
 2. **PDF'teki baskı hatası (Bölüm 13):** Elimizdeki PDF'te Şekil 13.2'deki Alarm tablosu yanlış basılmış (.70/.01 tekrarı). Standart değerler (.95/.94/.29/.001) kullanıldı; `ch13-olasiliksal-akil/notlar.md` §1'de açıklandı.
 3. **Bölüm 20 klasör adı — DÜZELTİLDİ (2026-10-02):** `ch20-bilgi-ogrenme` → `ch20-olasiliksal-ogrenme`; README ve MUFREDAT güncellendi.
-4. **Kök dosyalar:** `README.md` ve `MUFREDAT.md` eski; bitince güncellenmeli. Bütün bölümlerin "Terimler" tablolarından bir `SOZLUK.md` üretilecek. `BITIRME`/`CONTRIBUTING` dosyaları gözden geçirilecek.
-5. **Pull request:** Hepsi bitince `egitim-iyilestirme` → `main` için PR açılacak (kullanıcıya sorulmadan açılmayacak).
+4. **Kök dosyalar — YAPILDI (2026-10-07):** `README.md` (örnek komutlar, dizin ağacı, durum), `MUFREDAT.md` (kitaptaki bölüm adları, öne çıkan örnekler, bölümler arası bağlantılar), `CONTRIBUTING.md` (doğrulama, kod ve test kuralları) ve `BITIRME.md` güncel. `SOZLUK.md` bütün bölümlerin "Terimler" tablolarından `python scripts/sozluk_uret.py` ile üretiliyor (876 terim; elle düzenlenmez). Ch26'da çakışan modül adları değiştirildi (`robot_lokalizasyon.py`, `hareket_planlama.py`).
+5. **Pull request:** Bölüm 1–22, PR #1 ile 2026-10-02'de `main`'e birleştirildi (merge commit). Bölüm 23–28 ve kök dosyalar `egitim-iyilestirme` dalında bitti, CI yeşil; yeni bir PR'la gelecek (kullanıcıya sorulmadan PR açılmaz, birleştirmeyi kullanıcı yapar).
 
 ---
 
@@ -46,10 +45,9 @@ Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift say
 
 ---
 
-## 4. Sonraki bölümler için not edilmiş kitap değerleri (yeniden doğrula)
+## 4. Bundan sonra
 
-- **23:** CYK ayrıştırma.
-- **26:** Monte Carlo konumlandırma.
+Planlanan geliştirme işi kalmadı. Yeni işler kullanıcının okurken aldığı notlardan (`bekleyen-isler.md`, git'e girmez) gelecek.
 
 ---
 

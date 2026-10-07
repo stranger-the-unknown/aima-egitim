@@ -10,6 +10,7 @@ Russell & Norvig'in **Artificial Intelligence: A Modern Approach (AIMA), 4. bask
 - **Çalıştırılabilir örnekler** — arama, ajanlar, mantık vb. için net Python kodu
 - **Alıştırmalar ve quizler** — kavramı pekiştirmek için özgün sorular
 - **Müfredat yol haritası** — 28 bölüm, haftalık tempo önerisi
+- **Sözlük** — [`SOZLUK.md`](SOZLUK.md): bütün bölümlerin Türkçe–İngilizce terimleri (`python scripts/sozluk_uret.py` ile üretilir)
 - **Kapanış** — [`BITIRME.md`](BITIRME.md) tebrik + önerilen tekrar yolu
 
 Kitabı yasal olarak edinmeniz gerekir. Resmi kaynaklar:
@@ -27,13 +28,13 @@ Bu depo, bir yapay zekâ asistanıyla (ör. Grok) etkileşimli ders gibi kullan�
 4. **Kodu çalıştır** — `ornekler/` altındaki scriptleri çalıştır, değiştir, dene.
 5. **Alıştırma yap** — `alistirmalar.md`; takılırsan asistanla çöz.
 6. **Quiz çöz** — `quiz.md` ile hızlı kontrol.
-7. **Sonraki bölüme geç** — asistanla birlikte yeni bölüm notları ve kod eklenir (`CONTRIBUTING.md`).
+7. **Not al** — anlaşılmayan ya da hatalı görünen yerleri yerel `bekleyen-isler.md` dosyasına yaz; düzeltmeler `CONTRIBUTING.md`'deki kurallarla yapılır.
 
 ## Önkoşullar
 
 - **Python 3.10+**
 - Temel Python (fonksiyon, sınıf, liste/sözlük)
-- İsteğe bağlı: `numpy`, `matplotlib` (görselleştirme ve sayısal örnekler için)
+- `numpy` (örneklerin çoğu için gerekli), `matplotlib` (isteğe bağlı grafikler), `pytest` (testler)
 
 Kurulum:
 
@@ -57,7 +58,7 @@ python ch05-rakip-arama/ornekler/minimax_tictactoe.py --mod ajan-ajan
 python ch06-kisit-saglama/ornekler/harita_boyama_csp.py --mrv --forward
 python ch06-kisit-saglama/ornekler/n_vezir_csp.py --n 8
 python ch07-mantiksal-ajanlar/ornekler/onerme_mantigi.py
-python ch07-mantiksal-ajanlar/ornekler/wumpus_basit.py
+python ch07-mantiksal-ajanlar/ornekler/wumpus_mantik.py
 python ch08-birinci-derece-mantik/ornekler/fol_sozluk.py
 python ch08-birinci-derece-mantik/ornekler/fol_ceviri.py
 python ch09-cikarim-birinci-derece/ornekler/birlesim_unification.py
@@ -70,8 +71,9 @@ python ch12-belirsiz-bilgi/ornekler/bayes_kurali.py
 python ch12-belirsiz-bilgi/ornekler/naive_bayes_mini.py
 python ch13-olasiliksal-akil/ornekler/cpt_goster.py
 python ch13-olasiliksal-akil/ornekler/bayes_agi_kucuk.py
-python ch14-zamansal-olasilik/ornekler/hmm_filtreleme.py
-python ch14-zamansal-olasilik/ornekler/viterbi_kucuk.py
+python ch14-zamansal-olasilik/ornekler/semsiye.py
+python ch14-zamansal-olasilik/ornekler/kalman.py
+python ch14-zamansal-olasilik/ornekler/parcacik_filtresi.py
 python ch15-olasiliksal-programlama/ornekler/basit_uretimsel_model.py
 python ch15-olasiliksal-programlama/ornekler/reddetme_ornekleme.py
 python ch16-basit-kararlar/ornekler/fayda_kurami.py
@@ -88,16 +90,22 @@ python ch21-derin-ogrenme/ornekler/hesap_grafigi.py
 python ch21-derin-ogrenme/ornekler/mlp_egitim.py
 python ch22-pekistirmeli-ogrenme/ornekler/pasif_ogrenme.py
 python ch22-pekistirmeli-ogrenme/ornekler/aktif_ogrenme.py
-python ch23-dogal-dil/ornekler/n_gram_mini.py
-python ch23-dogal-dil/ornekler/bow_siniflandirma.py
-python ch24-derin-dil/ornekler/embedding_benzerlik.py
-python ch24-derin-dil/ornekler/dikkat_skoru.py
-python ch25-bilgisayarli-goru/ornekler/konvolusyon_mini.py
-python ch25-bilgisayarli-goru/ornekler/histogram_ozellik.py
-python ch26-robotik/ornekler/grid_lokalizasyon.py
-python ch26-robotik/ornekler/potansiyel_alan_path.py
-python ch27-felsefe-etik/ornekler/etik_senaryo_karti.py --demo
-python ch27-felsefe-etik/ornekler/guvenlik_kontrol_listesi.py
+python ch23-dogal-dil/ornekler/dil_modelleri.py
+python ch23-dogal-dil/ornekler/ayristirma.py
+python ch24-derin-dil/ornekler/gomme.py
+python ch24-derin-dil/ornekler/dikkat.py
+python ch24-derin-dil/ornekler/kod_cozme.py
+python ch25-bilgisayarli-goru/ornekler/goruntu_olusumu.py
+python ch25-bilgisayarli-goru/ornekler/ozellikler.py
+python ch25-bilgisayarli-goru/ornekler/tespit.py
+python ch26-robotik/ornekler/robot_lokalizasyon.py
+python ch26-robotik/ornekler/hareket_planlama.py
+python ch26-robotik/ornekler/kontrol.py
+python ch26-robotik/ornekler/insan_robot.py
+python ch27-felsefe-etik/ornekler/mahremiyet.py
+python ch27-felsefe-etik/ornekler/adalet.py
+python ch27-felsefe-etik/ornekler/guvenlik.py
+python ch28-AI-gelecek/ornekler/hesaplama_sinirlari.py
 python ch28-AI-gelecek/ornekler/yetenek_haritasi.py
 python ch28-AI-gelecek/ornekler/proje_fikirleri.py
 ```
@@ -117,40 +125,43 @@ python ch28-AI-gelecek/ornekler/proje_fikirleri.py
 
 ```
 aima-egitim/
-├── README.md
-├── MUFREDAT.md
-├── CONTRIBUTING.md
+├── README.md                    ← bu dosya
+├── MUFREDAT.md                  ← 28 bölümlük yol haritası, bölümler arası bağlantılar
+├── SOZLUK.md                    ← bütün bölümlerin terimleri (scripts/sozluk_uret.py üretir)
+├── BITIRME.md                   ← kapanış ve tekrar yolu
+├── CONTRIBUTING.md              ← katkı ve doğrulama kuralları
+├── DEVAM_PLANI.md               ← geliştirme durumu ve açık konular
 ├── requirements.txt
-├── scripts/check_setup.py
-├── ch01-giris/             ← 🟢 hazır (+ ozet.md)
-├── ch02-akilli-ajanlar/    ← 🟢 hazır
-├── ch03-cozum-arama/       ← 🟢 hazır (Romanya arama)
-├── ch04-karmasik-ortamlar/ ← 🟢 hazır (tepe tırmanma, SA)
-├── ch05-rakip-arama/       ← 🟢 hazır (minimax XOX)
-├── ch06-kisit-saglama/     ← 🟢 hazır (harita boyama CSP)
-├── ch07-mantiksal-ajanlar/ ← 🟢 hazır (önerme KB, ızgara)
-├── ch08-birinci-derece-mantik/ ← 🟢 hazır (FOL sözlük, çeviri)
-├── ch09-cikarim-birinci-derece/ ← 🟢 hazır (unify, geriye zincir)
-├── ch10-bilgi-temsili/          ← 🟢 hazır (ontoloji, default)
-├── ch11-klasik-planlama/        ← 🟢 hazır (STRIPS BFS)
-├── ch12-belirsiz-bilgi/         ← 🟢 hazır (Bayes, naif Bayes)
-├── ch13-olasiliksal-akil/        ← 🟢 hazır (Bayes ağı, enumeration)
-├── ch14-zamansal-olasilik/      ← 🟢 hazır (HMM filtre, Viterbi)
-├── ch15-olasiliksal-programlama/ ← 🟢 hazır (üretimsel model, reddetme)
-├── ch16-basit-kararlar/         ← 🟢 hazır (MEU, VOI)
-├── ch17-karmasik-kararlar/      ← 🟢 hazır (MDP, değer yineleme)
-├── ch18-cok-ajanli-karar/       ← 🟢 hazır (oyun teorisi, Nash)
-├── ch19-ogrenme-orneklerden/    ← 🟢 hazır (karar ağacı, perceptron)
-├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
-├── ch21-derin-ogrenme/          ← 🟢 hazır (geri yayılım, CNN, RNN, otokodlayıcı)
-├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (ADP, TD, Q-öğrenme, SARSA, politika araması)
-├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
-├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
-├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
-├── ch26-robotik/                ← 🟢 hazır (lokalizasyon, potansiyel alan)
-├── ch27-felsefe-etik/           ← 🟢 hazır (senaryo kartı, güvenlik listesi)
-├── ch28-AI-gelecek/             ← 🟢 hazır (yetenek haritası, proje fikirleri)
-└── BITIRME.md                   ← tebrik + tekrar yolu
+├── scripts/                     ← check_setup.py, sozluk_uret.py
+├── tests/                       ← her bölüm için test_chNN_*.py + test_duman.py (her betiği çalıştırır)
+├── ch01-giris/                  ← süpürge etmeni, PEAS, mini ELIZA (+ ozet.md)
+├── ch02-akilli-ajanlar/         ← tablo etmeni, model tabanlı süpürge, performans ölçütü
+├── ch03-cozum-arama/            ← Romanya haritası (BFS, UCS, A*), 8-bulmaca
+├── ch04-karmasik-ortamlar/      ← tepe tırmanma, benzetimli tavlama, genetik algoritma, VE–VEYA, LRTA*
+├── ch05-rakip-arama/            ← minimax, alfa–beta, beklenti-minimax, MCTS
+├── ch06-kisit-saglama/          ← harita boyama, n-vezir, min-çatışma, sudoku
+├── ch07-mantiksal-ajanlar/      ← önermeler mantığı, zincirleme, wumpus, SAT
+├── ch08-birinci-derece-mantik/  ← modeller, akrabalık, çeviri, tam toplayıcı
+├── ch09-cikarim-birinci-derece/ ← birleştirme, zincirleme, çözümleme, Prolog
+├── ch10-bilgi-temsili/          ← ontoloji, olay hesabı, kip mantığı, varsayılan akıl yürütme
+├── ch11-klasik-planlama/        ← otomatik planlama: eylem şemaları, hiyerarşik plan, zamanlama
+├── ch12-belirsiz-bilgi/         ← Bayes kuralı, naif Bayes, Hollanda kitabı
+├── ch13-olasiliksal-akil/       ← Bayes ağları, kesin çıkarım, örnekleme, nedensellik
+├── ch14-zamansal-olasilik/      ← HMM (şemsiye), Kalman, parçacık süzgeci
+├── ch15-olasiliksal-programlama/ ← üretimsel modeller, beceri derecelendirme, açık evren
+├── ch16-basit-kararlar/         ← fayda, karar ağları, bilgi değeri
+├── ch17-karmasik-kararlar/      ← MDP (4×3), değer/politika yinelemesi, haydutlar, POMDP
+├── ch18-cok-ajanli-karar/       ← Nash dengesi, tekrarlı oyunlar, mekanizma tasarımı
+├── ch19-ogrenme-orneklerden/    ← karar ağacı, model seçimi, doğrusal modeller, topluluklar
+├── ch20-olasiliksal-ogrenme/    ← Bayesçi öğrenme, ML/MAP, EM
+├── ch21-derin-ogrenme/          ← geri yayılım, MLP, CNN, RNN, otokodlayıcı
+├── ch22-pekistirmeli-ogrenme/   ← ADP, TD, Q-öğrenme, SARSA, politika araması
+├── ch23-dogal-dil/              ← n-gram, HMM etiketleme, PCFG ve CYK, anlambilim
+├── ch24-derin-dil/              ← gömme, dikkat, transformer, ışın araması
+├── ch25-bilgisayarli-goru/      ← izdüşüm, kenar, doku, optik akış, stereo, NMS
+├── ch26-robotik/                ← MCL, EKF, C-uzayı, PRM/RRT, PID/LQR, DAGGER
+├── ch27-felsefe-etik/           ← mahremiyet, adalet ölçütleri, güvenlik
+└── ch28-AI-gelecek/             ← kaba kuvvetin sınırları, üst-akıl yürütme, proje fikirleri
 ```
 
 ## Telif ve kullanım
@@ -162,16 +173,8 @@ aima-egitim/
 
 ## Durum
 
-- **Bölüm 1–19:** 🟢 hazır (önceki commit’lerde)
-- **Bölüm 20 (Olasılıksal modellerle öğrenme):** 🟢 hazır — MLE/MAP Bernoulli, EM iki-para, alıştırmalar, quiz
-- **Bölüm 21 (Derin öğrenme):** 🟢 hazır — aktivasyon karşılaştırma, numpy MLP XOR, alıştırmalar, quiz
-- **Bölüm 22 (Pekiştirmeli öğrenme):** 🟢 hazır — Q-öğrenme gridworld, ε-açgözlü bandit, alıştırmalar, quiz
-- **Bölüm 23 (Doğal dil):** 🟢 hazır — bigram LM, BoW naif Bayes, alıştırmalar, quiz
-- **Bölüm 24 (Derin dil):** 🟢 hazır — gömü kosinüs, dikkat softmax, alıştırmalar, quiz
-- **Bölüm 25 (Bilgisayarlı görü):** 🟢 hazır — 2D konvolüsyon, histogram özellik, alıştırmalar, quiz
-- **Bölüm 26 (Robotik):** 🟢 hazır — ızgara lokalizasyonu, potansiyel alan yolu, alıştırmalar, quiz
-- **Bölüm 27 (Felsefe, etik, güvenlik):** 🟢 hazır — senaryo kartı, güvenlik kontrol listesi, alıştırmalar, quiz
-- **Bölüm 28 (AI’nin geleceği):** 🟢 hazır — yetenek haritası, proje fikirleri, alıştırmalar, quiz
-- **Müfredat 1–28:** 🟢 tamamlandı — bkz. [`BITIRME.md`](BITIRME.md)
+- **28 bölümün hepsi tamam:** Notlar kitabın 4. baskısının alt bölümlerine eşlendi; kitaptaki sayısal örnekler kodla yeniden üretildi ve testlerle doğrulandı; her bölümde 8–10 alıştırma (hepsi çözümlü) ve 10–12 soruluk quiz var.
+- **Testler:** `python -m pytest -q` (~380 test; GitHub Actions'ta Python 3.10, 3.12 ve 3.13 ile her push'ta çalışır).
+- Geliştirme ayrıntıları ve açık konular: [`DEVAM_PLANI.md`](DEVAM_PLANI.md). Kapanış: [`BITIRME.md`](BITIRME.md).
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.

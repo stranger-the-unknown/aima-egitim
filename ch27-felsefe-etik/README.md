@@ -1,43 +1,49 @@
-# Bölüm 27 — Felsefe, etik ve AI güvenliği
+# Bölüm 27 — Yapay zekânın felsefesi, etiği ve güvenliği
 
-AIMA 4. baskı sonuç bölümlerindeki felsefe / etik temalarıyla uyumlu **özgün Türkçe** öğrenme paketi.
-Zayıf/güçlü AI, Turing testi sınırları, Çin odası (tartışma özeti — kendi sözlerinizle),
-hizalama/güvenlik, adillik/gizlilik/hesap verebilirlik.
-Senaryo kartı ve kontrol listesi araçları; vaaz yok, analiz çerçevesi var. Kitap metni yok.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 27 · *Philosophy, Ethics, and Safety of AI*
 
 ## Öğrenme hedefleri
 
-1. Zayıf (dar) AI ile güçlü / genel AI tartışmasını ayırt etmek.
-2. Turing testinin neyi ölçüp neyi ölçmediğini eleştirel özetlemek.
-3. Çin odası düşünce deneyini adil bir özetle tartışmaya açmak (kendi sözlerinizle).
-4. Hizalama / güvenlik temalarını proje ölçeğinde somutlamak.
-5. Adillik, gizlilik ve hesap verebilirlik için soru listesi kurmak.
+1. Zayıf ve güçlü YZ ayrımını, Turing'in öngördüğü itirazları ve yanıtlarını açıklamak.
+2. Çin odası argümanını ve bilinç sorusunu tarafsızca özetlemek.
+3. Otonom silahlar, gözetim ve işin geleceği tartışmalarının argümanlarını sıralamak.
+4. k-anonimlik, fark saldırısı, diferansiyel mahremiyet ve federe öğrenmeyi hesaplamalı olarak göstermek.
+5. Adalet ölçütlerini tanımlamak; kalibrasyon ile fırsat eşitliğinin çatışmasını göstermek.
+6. Güvenlik mühendisliği, düşük etki ve değer hizalama sorununu örneklerle açıklamak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları (dengeli) |
-| `ornekler/etik_senaryo_karti.py` | Senaryo kartı: eylem seç → gerilim kontrol listesi |
-| `ornekler/guvenlik_kontrol_listesi.py` | AI proje güvenlik/etik kontrol listesi şablonu |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | A1 ve A2 tartışma anahtarları |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 27'yi oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır (yalnızca numpy gerekir; bütün veriler yapaydır).
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA’da ilgili felsefe/etik kısımlarını oku (yasal nüsha).
-2. `notlar.md` ile çerçeveyi kur.
-3. Araçları çalıştır:
-   ```bash
-   python ornekler/etik_senaryo_karti.py
-   python ornekler/guvenlik_kontrol_listesi.py
-   ```
-4. Alıştırmalar (tartışma) → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/mahremiyet.py` | Yeniden tanımlama, k-anonimlik, fark saldırısı, Laplace mekanizması (ε-DP), güvenli toplama, federe SGD |
+| `ornekler/adalet.py` | Kalibrasyon ve fırsat eşitliği, grup eşikleri, farkında olmayarak adalet (vekil), örneklem boyu dengesizliği |
+| `ornekler/guvenlik.py` | Hata ağacı analizi, düşük etki, şartname oyunu, sor/uygula kararı, tekillik hesabı ve S eğrisi |
+| `alistirmalar.md` | 10 alıştırma (2 tartışma, 8 hesap/kod) |
+| `cozumler/` | Tüm çözümler (A3–A10 kod) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+## Kitapla doğrulama
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+`tests/test_ch27_felsefe_etik.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| Fark saldırısı | $81 234 / 12 ve $81 199 / 13 → tek kişinin maaşı | ✔ $80 779 |
+| ε-diferansiyel mahremiyet | \|log P(Q(D) = y) − log P(Q(D + r) = y)\| ≤ ε | ✔ Laplace mekanizması tam ε verir |
+| Güvenli toplama | Maskelerin toplamı sıfırsa sunucu doğru ortalamayı bulur | ✔ |
+| Kalibrasyon vs fırsat eşitliği | Taban oranlar farklıysa ikisi birlikte sağlanamaz (Kleinberg vd.) | ✔ |
+| Farkında olmama | Model korunan özniteliği vekillerden çıkarır | ✔ |
+| Örneklem dengesizliği | Doğrusal model çoğunluğa uyar | ✔ |
+| Hata ağacı | VE/VEYA ağacıyla toplam arıza olasılığı | ✔ |
+| Düşük etki | Fayda − değişikliklerin ağırlıklı toplamı | ✔ |
+| Tekillik | "24 yılda 2 yıl yaklaştı, bu hızla 336 yıl" | ✔ |
+
+Kitaptaki gerçek sayılar (Sweeney'nin %87'si, COMPAS'ın %60/%61 ve %45/%23'ü, %33 hata oranı…) notlarda aktarılır; kodlar bunları yapay verilerle benzer mekanizmalar üzerinden gösterir, gerçek verileri yeniden üretmez.
