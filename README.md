@@ -130,7 +130,6 @@ aima-egitim/
 ├── SOZLUK.md                    ← bütün bölümlerin terimleri (scripts/sozluk_uret.py üretir)
 ├── BITIRME.md                   ← kapanış ve tekrar yolu
 ├── CONTRIBUTING.md              ← katkı ve doğrulama kuralları
-├── DEVAM_PLANI.md               ← geliştirme durumu ve açık konular
 ├── requirements.txt
 ├── scripts/                     ← check_setup.py, sozluk_uret.py
 ├── tests/                       ← her bölüm için test_chNN_*.py + test_duman.py (her betiği çalıştırır)
@@ -175,6 +174,6 @@ aima-egitim/
 
 - **28 bölümün hepsi tamam:** Notlar kitabın 4. baskısının alt bölümlerine eşlendi; kitaptaki sayısal örnekler kodla yeniden üretildi ve testlerle doğrulandı; her bölümde 8–10 alıştırma (hepsi çözümlü) ve 10–12 soruluk quiz var.
 - **Testler:** `python -m pytest -q` (~380 test; GitHub Actions'ta Python 3.10, 3.12 ve 3.13 ile her push'ta çalışır).
-- Geliştirme ayrıntıları ve açık konular: [`DEVAM_PLANI.md`](DEVAM_PLANI.md). Kapanış: [`BITIRME.md`](BITIRME.md).
+- Katkı ve doğrulama kuralları: [`CONTRIBUTING.md`](CONTRIBUTING.md). Kapanış: [`BITIRME.md`](BITIRME.md).
 
 İyi çalışmalar! Sorularını asistanla birlikte adım adım çözebilirsin.
