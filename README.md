@@ -93,8 +93,9 @@ python ch23-dogal-dil/ornekler/ayristirma.py
 python ch24-derin-dil/ornekler/gomme.py
 python ch24-derin-dil/ornekler/dikkat.py
 python ch24-derin-dil/ornekler/kod_cozme.py
-python ch25-bilgisayarli-goru/ornekler/konvolusyon_mini.py
-python ch25-bilgisayarli-goru/ornekler/histogram_ozellik.py
+python ch25-bilgisayarli-goru/ornekler/goruntu_olusumu.py
+python ch25-bilgisayarli-goru/ornekler/ozellikler.py
+python ch25-bilgisayarli-goru/ornekler/tespit.py
 python ch26-robotik/ornekler/grid_lokalizasyon.py
 python ch26-robotik/ornekler/potansiyel_alan_path.py
 python ch27-felsefe-etik/ornekler/etik_senaryo_karti.py --demo
@@ -147,7 +148,7 @@ aima-egitim/
 ├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (ADP, TD, Q-öğrenme, SARSA, politika araması)
 ├── ch23-dogal-dil/              ← 🟢 hazır (n-gram, CYK, PCFG, anlambilim)
 ├── ch24-derin-dil/              ← 🟢 hazır (gömme, dikkat, transformer, ışın araması)
-├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
+├── ch25-bilgisayarli-goru/      ← 🟢 hazır (izdüşüm, kenar, doku, optik akış, stereo, NMS)
 ├── ch26-robotik/                ← 🟢 hazır (lokalizasyon, potansiyel alan)
 ├── ch27-felsefe-etik/           ← 🟢 hazır (senaryo kartı, güvenlik listesi)
 ├── ch28-AI-gelecek/             ← 🟢 hazır (yetenek haritası, proje fikirleri)
