@@ -88,8 +88,8 @@ python ch21-derin-ogrenme/ornekler/hesap_grafigi.py
 python ch21-derin-ogrenme/ornekler/mlp_egitim.py
 python ch22-pekistirmeli-ogrenme/ornekler/pasif_ogrenme.py
 python ch22-pekistirmeli-ogrenme/ornekler/aktif_ogrenme.py
-python ch23-dogal-dil/ornekler/n_gram_mini.py
-python ch23-dogal-dil/ornekler/bow_siniflandirma.py
+python ch23-dogal-dil/ornekler/dil_modelleri.py
+python ch23-dogal-dil/ornekler/ayristirma.py
 python ch24-derin-dil/ornekler/embedding_benzerlik.py
 python ch24-derin-dil/ornekler/dikkat_skoru.py
 python ch25-bilgisayarli-goru/ornekler/konvolusyon_mini.py
@@ -144,7 +144,7 @@ aima-egitim/
 ├── ch20-olasiliksal-ogrenme/    ← 🟢 hazır (Bayesçi öğrenme, ML/MAP, EM)
 ├── ch21-derin-ogrenme/          ← 🟢 hazır (geri yayılım, CNN, RNN, otokodlayıcı)
 ├── ch22-pekistirmeli-ogrenme/   ← 🟢 hazır (ADP, TD, Q-öğrenme, SARSA, politika araması)
-├── ch23-dogal-dil/              ← 🟢 hazır (bigram LM, BoW)
+├── ch23-dogal-dil/                 ← 🟢 hazır (n-gram, CYK, PCFG, anlambilim)
 ├── ch24-derin-dil/              ← 🟢 hazır (gömü, dikkat skoru)
 ├── ch25-bilgisayarli-goru/      ← 🟢 hazır (konvolüsyon, histogram)
 ├── ch26-robotik/                ← 🟢 hazır (lokalizasyon, potansiyel alan)

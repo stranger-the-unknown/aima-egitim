@@ -12,12 +12,12 @@ Son güncelleme: 2026-10-02
 
 | Bölüm | Durum |
 |---|---|
-| 1–22 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
-| 23–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
+| 1–23 | **Bitti.** Notlar kitabın 4. baskı alt bölümlerine eşlendi; kitap örnekleri kodlandı ve testlerle doğrulandı; 8–10 alıştırmanın hepsi çözüldü; 10–12 soruluk quiz (cevap harfleri dağıtılmış). |
+| 24–28 | **Başlanmadı.** Hâlâ ilk (Grok) sürümleri duruyor. |
 
 Bütün testler geçiyor: `python -m pytest -q`
 
-Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
+Bölüm 16–22 2026-10-02'de, 23 2026-10-07'de bitti. Bölüm 17'deki değer yinelemesi çift sayım hatası, dosyalar yeniden yazılarak giderildi (`ornekler/mdp.py` kütüphanesi; `politika_degerlendirme.py` → `politika_yineleme.py`).
 
 ---
 
@@ -48,7 +48,6 @@ Bölüm 16–22 2026-10-02'de bitti. Bölüm 17'deki değer yinelemesi çift say
 
 ## 4. Sonraki bölümler için not edilmiş kitap değerleri (yeniden doğrula)
 
-- **23:** CYK ayrıştırma.
 - **26:** Monte Carlo konumlandırma.
 
 ---

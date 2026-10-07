@@ -1,42 +1,45 @@
-# Bölüm 23 — Doğal dil işleme (giriş)
+# Bölüm 23 — Doğal dil işleme
 
-AIMA 4. baskı (US) *Natural Language Processing* giriş temalarıyla uyumlu **özgün Türkçe** öğrenme paketi.
-Dil modelleri, n-gram, kelime torbası (BoW), gömme vektörlerine yüksek seviye bakış, tipik görevler.
-Saf Python / numpy ile minik bigram LM ve BoW sınıfandırıcı; kitap metni yok.
-
-**Durum:** 🟢 hazır
+> AIMA 4. baskı, Bölüm 23 · *Natural Language Processing*
 
 ## Öğrenme hedefleri
 
-1. Dil modelinin ne yaptığını (sözcük dizisi olasılığı / sonraki sözcük) açıklamak.
-2. n-gram fikrini (özellikle bigram) ve sınırlarını özetlemek.
-3. Kelime torbası (BoW) temsilini ve basit naif Bayes tarzı sınıflandırmayı uygulamak.
-4. Kelime gömülerini (embeddings) yüksek seviyede tanımak (yoğun vektör, benzerlik).
-5. NLP görevlerine (sınıflandırma, NER, çeviri, QA …) genel bakış verebilmek.
+1. Sözcük torbası ve n-gram dil modellerini kurmak; düzeltme yapmak.
+2. Şaşkınlıkla modelleri karşılaştırmak; HMM ile sözcük türü etiketlemek.
+3. PCFG ile cümle olasılığı hesaplamak; CYK ile en olası ağacı bulmak.
+4. Ağaç bankasından PCFG öğrenmek.
+5. Bileşimsel anlambilimi uygulamak.
+6. Gerçek dilin zorluklarını ve temel NLP görevlerini tanımak.
 
-## Bu klasörde ne var?
+## Çalışma sırası
 
-| Dosya / klasör | İçerik |
-|----------------|--------|
-| `notlar.md` | Özgün Türkçe öğretim notları |
-| `ornekler/n_gram_mini.py` | Minik Türkçe derlemden bigram LM; skor / örnek üretim |
-| `ornekler/bow_siniflandirma.py` | Duygu / konu BoW + naif Bayes tarzı sayaç |
-| `alistirmalar.md` | 5 özgün alıştırma |
-| `cozumler/` | A1 ve A2 çözümleri |
-| `quiz.md` | 5 soru + cevaplar |
+1. Kitapta Bölüm 23'ü oku.
+2. [`notlar.md`](notlar.md)
+3. Örnekleri çalıştır.
+4. [`alistirmalar.md`](alistirmalar.md) → [`cozumler/`](cozumler/)
+5. [`quiz.md`](quiz.md)
 
-## Nasıl çalış?
+## Dosyalar
 
-1. AIMA’da doğal dil / dil modelleri girişini oku (yasal nüsha).
-2. `notlar.md` ile pekiştir.
-3. Örnekleri çalıştır:
-   ```bash
-   python ornekler/n_gram_mini.py
-   python ornekler/bow_siniflandirma.py
-   ```
-4. Alıştırmalar → `cozumler/` → `quiz.md`.
+| Dosya | İçerik |
+|---|---|
+| `ornekler/dil_modelleri.py` | Naif Bayes sözcük torbası, n-gram, Laplace, ara değerleme, şaşkınlık, HMM + Viterbi etiketleme |
+| `ornekler/ayristirma.py` | E₀ PCFG (Şekil 23.2–23.3), olasılıksal CYK, belirsizlik, ağaç bankasından PCFG |
+| `ornekler/anlambilim.py` | Aritmetik dilbilgisi ve bileşimsel anlambilim, λ-hesabıyla cümle anlamı |
+| `alistirmalar.md` | 10 alıştırma |
+| `cozumler/` | Tüm çözümler (A3, A5, A7, A8, A9 kod) |
+| `quiz.md` | 12 soru + cevaplar |
 
-## Kaynaklar
+## Kitapla doğrulama
 
-- [aima.cs.berkeley.edu](https://aima.cs.berkeley.edu/)
-- [github.com/aimacode](https://github.com/aimacode)
+`tests/test_ch23_dogal_dil.py`:
+
+| Değer | Kitap | Kod |
+|---|---|---|
+| E₀ kural olasılıkları | her kategori için toplam 1 | ✔ |
+| "the wumpus is dead" | Şekil 23.4'teki ağaç; P = 1.35 × 10⁻⁶ | ✔ |
+| Fazla / eksik üretim | "Me go I" kabul, "I think …" ret | ✔ ("go" sözlüğe bizim eklememiz) |
+| Sözcük torbası sayıları | P(ekonomi) = 0.1, P(stocks \| ekonomi) = 0.007 | ✔ |
+| Ardıllık kuralı | 1/(N + 2) | ✔ |
+| Aritmetik dilbilgisi | 3 + (4 ÷ 2) → Exp(5) | ✔ |
+| λ-hesabı | "Ali loves Bo" → Loves(Ali, Bo) | ✔ |
