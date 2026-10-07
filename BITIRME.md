@@ -14,7 +14,7 @@ Bu bir diploma değil; **ortak bir AI dili** kazandınız.
 2. **Zayıf halkalar** — quiz’lerde zorlandığınız 2–3 bölümü seçin; kodu yeniden çalıştırın, A1–A2’yi tekrar yazın.
 3. **Köprü projeler** — `ch28-AI-gelecek/ornekler/proje_fikirleri.py` listesinden **bir** mini proje bitirin.
 4. **Yön seçin** — `ch28-AI-gelecek/ornekler/yetenek_haritasi.py --yol …` ile modern yığın notlarını planınıza ekleyin.
-5. **Etik çerçeve** — her portföy işine `ch27-felsefe-etik/ornekler/guvenlik_kontrol_listesi.py` çıktısından kısa bir dilim ekleyin.
+5. **Etik çerçeve** — her portföy işine kısa bir değerlendirme ekleyin: alt gruplar için ayrı hata oranları (`ch27-felsefe-etik/ornekler/adalet.py`), veride yeniden tanımlama riski (`mahremiyet.py`), olası arızalar ve yan etkiler (`guvenlik.py`).
 
 ---
 
